@@ -46,18 +46,18 @@ RaPath.prototype = {
 		info.clear();
 	},
 	start: function (geotrace) {
-		$('.leaflet-control-zoom').hide();
+		$('.leaflet-top').show();
 //		$('#' + id).addClass('active');
 		this.clear();
 		this.geotrace = geotrace;
 		this.layers = [];
-		info.appendText(geotrace.name);
+		info.append(texts.requestline + ' ' + geotrace.name);
 		map.panTo(this.geotrace.hops[0].p);
 		this.processStep(0);
 	},
 	processStep: function (index) {
 		var hop = this.geotrace.hops[index];
-		info.appendText(this.getHopsText(hop));
+		info.append(this.getHopsText(hop));
 		this.addPulse(hop);
 		map.panTo(hop.p);
 		var caller = this;
@@ -66,14 +66,13 @@ RaPath.prototype = {
 		}, 200);
 	},
 	displayEnd: function () {
-		$('.leaflet-control-zoom').show();
+		//$('.leaflet-control-zoom').show();
 		var result = [];
 		for (key in this.geotrace.agencies) {
-			result.push(this.geotrace.agencies[key].name);
+			result.push(this.geotrace.agencies[key].name + ' (' + this.geotrace.agencies[key].cc + ')');
 		}
-		info.setHTML(
-			'<div id="agencies">' + texts.resultline + '<br/>' + result.join(', ') + '</div>'
-		);
+		info.append('<div id="agencies">' + texts.resultline + '</div>');
+		info.append('<div id="agencies">' + result.join(' - ') + '</div>');
 		map.fitBounds(this.geotrace.bounds);
 	},
 	stepPath: function (index) {
@@ -174,14 +173,16 @@ function init() {
 	map = new L.Map("map", { center: DEFAULT_POINT, zoom: 3});
 
 	map.addLayer(
-		new L.TileLayer("http://sloppy.odcm.opendatacloud.de/trace/{z}/{x}/{y}.png ",
-			{attribution: 'OpenDataCity, CC-BY'}
+		new L.TileLayer("http://map.opendatacloud.de/trace/{z}/{x}/{y}.png ",
+			{attribution: 'OpenDataCity, CC-BY',
+				minZoom: 3,
+				maxZoom: 5}
 		)
 	);
 
 	rapath = new RaPath();
 
-	info = L.control({position: 'bottomleft'});
+	info = L.control({position: 'topleft'});
 	info.onAdd = function (map) {
 		var div = L.DomUtil.create('div', 'hops');
 		this._div = $(div); // create a div with a class "info"
@@ -195,7 +196,7 @@ function init() {
 	info.setHTML = function (h) {
 		this._div.html(h);
 	};
-	info.appendText = function (txt) {
+	info.append = function (txt) {
 		if (this._div.children().length > 3)
 			this._div.children().first().remove();
 		this._div.append('<p>' + txt + '</p>');
@@ -205,8 +206,8 @@ function init() {
 	};
 	info.addTo(map);
 
-	var lines = [texts.tagline, texts.subline, texts.helpline];
-	new Typing().beginTyping(lines, $('#hops'));
+	var lines = [texts.helpline];
+	//new Typing().beginTyping(lines, $('#hops'));
 }
 
 function showRoute(id) {

@@ -85,29 +85,51 @@ routes_infos.forEach(function (route) {
 });
 
 var agencies = {
-	"DE": {name: "BND", long: "Bundesnachrichtendienst", image: "todo"},
-	"FR": {name: "DGSE", long: "Direction Générale de la Sécurité Extérieure", image: "todo"},
-	"NL": {name: "AIVD", long: "Algemene Inlichtingen- en Veiligheidsdienst", image: "todo"},
-	"CH": {name: "NDB", long: "Nachrichtendienst des Bundes", image: "todo"},
-	"US": {name: "GCHQ", long: "Government Communications Headquaters", image: "todo"},
-	"UK": {name: "NSA", long: "National Security Agency", image: "todo"},
-	"ES": {name: "CNI", long: "Centro Nacional de Inteligencia", image: "todo"},
-	"LU": {name: "SRE", long: "Service de Renseignement de l’État", image: "todo"}
+	"DE": {name: "BND", cc: "DE", long: "Bundesnachrichtendienst"},
+	"FR": {name: "DGSE", cc: "FR", long: "Direction Générale de la Sécurité Extérieure"},
+	"NL": {name: "AIVD", cc: "NL", long: "Algemene Inlichtingen- en Veiligheidsdienst"},
+	"CH": {name: "NDB", cc: "CH", long: "Nachrichtendienst des Bundes"},
+	"UK": {name: "GCHQ", cc: "UK", long: "Government Communications Headquaters"},
+	"US": {name: "NSA", cc: "US", long: "National Security Agency"},
+	"ES": {name: "CNI", cc: "ES", long: "Centro Nacional de Inteligencia"},
+	"LU": {name: "SRE", cc: "LU", long: "Service de Renseignement de l’État"}
 };
 
 var jstexts_de = {
-	tagline: 'Meine Daten: Wer liest mit?',
-	subline: 'Beispielhafte Anfragen an diese Dienste aus Deutschland',
-	helpline: 'Bitte klicken Sie unten auf ein Bild um eine Beispielanfrage zu starten',
+	tagline: 'Wo führt das hin?',
+	subline: 'Beispielhafte Anfragen aus Deutschland an Internetdienste',
+	helpline: 'Bitte unten Dienst auswählen',
 	route_btn_hint: 'Anzeige der Route zu',
-	resultline: 'You have been abgeschnorchelt by:'
+	requestline: 'Anfrage an',
+	resultline: 'Möglicher Zugriff dieser Geheimdienste:',
+	countries: {
+		"DE": {name: "Deutschland"},
+		"FR": {name: "Frankreich"},
+		"NL": {name: "Niederlande"},
+		"CH": {name: "Schweiz"},
+		"UK": {name: "Großbritanien"},
+		"US": {name: "Vereinigte Staaten"},
+		"ES": {name: "Spanien"},
+		"LU": {name: "Luxemburg"}
+	}
 };
 var jstexts_en = {
-	tagline: 'Meine Daten: Wer liest mit?',
-	subline: 'Beispielhafte Anfragen an diese Dienste aus Deutschland',
-	helpline: 'Bitte klicken Sie unten auf ein Bild um eine Beispielanfrage zu starten',
-	route_btn_hint: 'Anzeige der Route zu',
-	resultline: 'You have been abgeschnorchelt by:'
+	tagline: 'Where is this going?',
+	subline: 'Examples for Internet requests from Germany',
+	helpline: 'Please choose a service below',
+	route_btn_hint: 'Display a route to',
+	requestline: 'Request to',
+	resultline: 'Probalby accessed by these security services:',
+	countries: {
+		"DE": {name: "Germany"},
+		"FR": {name: "France"},
+		"NL": {name: "Netherlands"},
+		"CH": {name: "Swiss"},
+		"UK": {name: "United Kingdom"},
+		"US": {name: "United States"},
+		"ES": {name: "Spain"},
+		"LU": {name: "Luxembourg"}
+	}
 };
 
 var agencies_str = JSON.stringify(agencies);

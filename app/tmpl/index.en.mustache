@@ -37,24 +37,43 @@
 <body>
 <div id="container">
 	<header>
-		<h1>My data: Who else is reading?</h1>
-		<nav id="switch-language">
-			<ul>
-				<li><a href="/prism/de" title="Deutsch">DE</a></li>
-				<li class="active"><a href="/prism/en" title="English">EN</a></li>
-			</ul>
-		</nav>
+		<h1>Where is this going?</h1>
+		<h4>Examples for Internet requests from Germany</h4>
+
+		<div id="language">
+			<small><a href="http://apps.opendatacity.de/prism/de/">german</a> | <b>english</b></small>
+		</div>
+
+		<div id="social">
+			<div id="social-twitter" class="social">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://apps.opendatacity.de/prism/" data-text="Where is this going?" data-via="opendatacity" data-lang="de">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			<div id="social-google" class="social">
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+					window.___gcfg = {lang: 'de'};
+					(function() {
+						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						po.src = 'https://apis.google.com/js/plusone.js';
+						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					})();
+				</script>
+			</div>
+			<div id="social-facebook" class="social">
+				<a class="btn btn-mini share-pop" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;t=<text>"><i class="icon-facebook"></i><span> Facebook</span></a>
+			</div>
+			<div class="social embed"><a href="javascript:;" class="btn btn-primary embed-button">Embed</a></div>
+
+		</div>
+
 	</header>
 	<div id="main" role="main">
 		<div id="text-intro">
 			<p class="lead">
-				Where exactly and how much of the Internet traffic is scanned and saved by secret services
-				is not entirely known (at July 4th, 2013). Our visualisation shows examples of how internet
-				packets wander around the world's internet cables while we use some of the most popular
+				Our visualisation shows examples of how internet packets,
+				originated from Germany, wander around the world's internet cables while we use some of the most popular
 				internet services. Each country your data packets visit offers an opportunity for snooping.
-				This NewsApp can be embedded
-				(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) and is
-				also avaiable <a href="/prism/de">in German</a>.
 			</p>
 		</div>
 		<div id="app">
@@ -77,14 +96,11 @@
 			<p>
 				More information on Prism, Tempora can be found here: ....
 			</p>
-		</div>
-		<div id="share">
-			Share this:
-			<a class="share-pop" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;text=<text>&amp;related=Prism"><i class="icon-twitter"></i><span> Twitter</span></a>
-			<a class="share-pop" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;t=<text>"><i class="icon-facebook"></i><span> Facebook</span></a>
-			<a class="share-pop" href="https://plus.google.com/share?url=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F"><i class="icon-google-plus"></i><span> Google+</span></a>
-			<a class="share-pop" href="https://alpha.app.net/intent/post?text=<text>"><i class="icon-adn"></i><span> App.net</span></a>
-			<a class="embed" href="javascript:;" id="embed-show"><i class="icon-share"></i><span> Embed this on your website</span></a>
+			<p>
+				This NewsApp can be embedded
+				(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) and is
+				also avaiable <a href="/prism/de">in German</a>.
+			</p>
 		</div>
 	</div>
 	<footer>

@@ -36,25 +36,48 @@
 </head>
 <body>
 <div id="container">
+
+
 	<header>
-		<h1>Meine Daten: Wer liest mit?</h1>
-		<nav id="switch-language">
-			<ul>
-				<li class="active"><a href="/prism/de" title="Deutsch">DE</a></li>
-				<li><a href="/prism/en" title="English">EN</a></li>
-			</ul>
-		</nav>
+
+		<h1>Wo führt das hin?</h1>
+		<h4>Beispielhafte Anfragen aus Deutschland an Internetdienste</h4>
+		<div id="language">
+			<small><b>deutsch</b> | <a href="http://apps.opendatacity.de/prism/en/">english</a></small>
+		</div>
+
+		<div id="social">
+			<div id="social-twitter" class="social">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://apps.opendatacity.de/prism/" data-text="Wo führt das hin?" data-via="opendatacity" data-lang="de">Twittern</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			<div id="social-google" class="social">
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+					window.___gcfg = {lang: 'de'};
+					(function() {
+						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						po.src = 'https://apis.google.com/js/plusone.js';
+						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					})();
+				</script>
+			</div>
+			<div id="social-facebook" class="social">
+				<a class="btn btn-mini share-pop" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;t=<text>"><i class="icon-facebook"></i><span> Facebook</span></a>
+			</div>
+			<div class="social embed"><a href="javascript:;" class="btn btn-primary embed-button">Einbetten</a></div>
+
+		</div>
+
+
 	</header>
 	<div id="main" role="main">
 		<div id="text-intro">
 			<p class="lead">
-				Wo genau und wie viel des Internetverkehrs von Geheimdiensten gescannt und gespeichert wird,
-				ist nicht in Gänze bekannt (Stand: 04.07.2013). Unsere Visualisierung zeigt exemplarisch,
-				wie bei der Nutzung von populären Diensten in Deutschland Datenpakete durch die Leitungen
-				wandern. Und an verschiendenen Stellen von irgendwelchen Geheimdiensten abgegriffen werden
-				könnten. Diese NewsApp kann eingebettet werden
-				(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) und liegt
-				auch <a href="/prism/en">in Englisch</a> vor.
+				Unsere Visualisierung zeigt exemplarisch,
+				wie bei Nutzung populärer Diensten von Deutschland aus Datenpakete durch die Leitungen
+				wandern. Und auf dem Weg von verschiedenen Geheimdiensten abgegriffen werden
+				könnten.
 			</p>
 		</div>
 		<div id="app">
@@ -70,14 +93,11 @@
 			<p>
 				Mehr Informationen zu Prism, Tempora hier: ...
 			</p>
-		</div>
-		<div id="share">
-			Teilen auf:
-			<a class="share-pop" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;text=<text>&amp;related=Prism"><i class="icon-twitter"></i><span> Twitter</span></a>
-			<a class="share-pop" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;t=<text>"><i class="icon-facebook"></i><span> Facebook</span></a>
-			<a class="share-pop" href="https://plus.google.com/share?url=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F"><i class="icon-google-plus"></i><span> Google+</span></a>
-			<a class="share-pop" href="https://alpha.app.net/intent/post?text=<text>"><i class="icon-adn"></i><span> App.net</span></a>
-			<a class="embed" href="javascript:;" id="embed-show"><i class="icon-share"></i><span> Einbetten</span></a>
+			<p>
+				Diese NewsApp kann eingebettet werden
+				(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) und liegt
+				auch <a href="/prism/en">in Englisch</a> vor.
+			</p>
 		</div>
 	</div>
 	<footer>
