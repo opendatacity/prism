@@ -128,6 +128,10 @@ var site_en = mustache.render(
 	{ partial_prism: tmpl.partial_prism }
 );
 
+app.get(config.prefix, function (req, res) {
+	res.send(site_de);
+});
+
 app.get(config.prefix + '/', function (req, res) {
 	res.send(site_de);
 });
