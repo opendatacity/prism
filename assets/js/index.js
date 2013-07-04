@@ -47,7 +47,7 @@ $(document).ready(function(){
 				$('#btn').removeAttr("disabled");
 				$('#input').removeAttr("disabled");
 // FIXME: no alerts!
-				alert(xhr.status + ': ' + err);
+//				alert(xhr.status + ': ' + err);
 			}
 		});
 		return false;
@@ -76,7 +76,8 @@ function loadData(url) {
 			startPath(data);
 		},
 		error: function (xhr, ts, err) {
-			alert(xhr.status + ': ' + err);
+//	FIXME: no alerts.
+//			alert(xhr.status + ': ' + err);
 		}
 	});
 }
@@ -102,7 +103,11 @@ function addPulse(latlng) {
 }
 
 function getHopsText(hop) {
-	return '<div class="hop" title="IP: '+hop.ip+'"><span class="city">'+hop.geoip.location.address.city+'</span>, <span class="country">'+hop.geoip.location.address.country+'</span></div>';
+	if (("city" in hop.geoip.location.address) && (hop.geoip.location.address.city !== "")) {
+		return '<div class="hop" title="IP: '+hop.ip+'"><span class="city">'+hop.geoip.location.address.city+'</span>, <span class="country">'+hop.geoip.location.address.country+'</span></div>';
+	} else {
+		return '<div class="hop" title="IP: '+hop.ip+'"><span class="country">'+hop.geoip.location.address.country+'</span></div>';
+	}
 }
 
 function startPath(pathdata) {
