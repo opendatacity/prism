@@ -123,7 +123,7 @@ var jstexts_en = {
 	helpline: '--- Please choose a service above ---',
 	route_btn_hint: 'Display a route to',
 	requestline: 'Request to',
-	resultline: 'Probalby accessed by these security services:',
+	resultline: 'Probably accessed by these security services:',
 	cable: 'submarine cable',
 	countries: {
 		"DE": {name: "Germany"},
