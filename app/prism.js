@@ -92,7 +92,8 @@ var agencies = {
 	"UK": {name: "GCHQ", cc: "UK", long: "Government Communications Headquaters"},
 	"US": {name: "NSA", cc: "US", long: "National Security Agency"},
 	"ES": {name: "CNI", cc: "ES", long: "Centro Nacional de Inteligencia"},
-	"LU": {name: "SRE", cc: "LU", long: "Service de Renseignement de l’État"}
+	"LU": {name: "SRE", cc: "LU", long: "Service de Renseignement de l’État"},
+	"CA": {name: "CSEC", cc: "CA", long: "Communications Security Establishment Canada"}
 };
 
 var jstexts_de = {

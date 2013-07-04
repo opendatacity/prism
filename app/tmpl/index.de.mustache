@@ -27,6 +27,7 @@
 	<script type="text/javascript" src="/prism/assets/js/raphael.min.js"></script>
 	<script type="text/javascript" src="/prism/assets/js/rlayer-mod.min.js"></script>
 	<script type="text/javascript" src="/prism/assets/js/index.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/helper.js"></script>
 
 	<script type="text/javascript">
 		var $embed_overlay = '<div id="embed-overlay"><div id="embed-content"><h1>Weitergeben</h1><form name="embed-form" id="embed-form" action="javascript:;" method="post"><fieldset id="embed-size" class="form-inline"><legend>Größe</legend><label class="radio"><input type="radio" name="size" value="large" checked="checked"> Groß (860&times;610)</label><label class="radio"><input type="radio" name="size" value="medium"> Mittel (640&times;490)</label><label class="radio"><input type="radio" name="size" value="small"> Klein (520&times;370)</label><label class="radio"><input type="radio" name="size" value="verysmall"> Sehr klein, aber hoch (420&times;740)</label></fieldset><fieldset class="form-inline"><legend>Sprache</legend><label class="radio"><input type="radio" name="lang" value="de" checked="checked"> Deutsch</label><label class="radio"><input type="radio" name="lang" value="en"> Englisch</label></fieldset><h2>Code</h2><p>Kopiere diesen Code in Deine Webseite:</p><code id="embed-code"></code></form><p><a href="javascript:;" class="btn btn-medium btn-primary">Schließen</a></p></div></div>';
@@ -39,6 +40,16 @@
 	<!--[if lte IE 7]><link rel="stylesheet" href="/prism/assets/css/font-awesome-ie7.min.css" /><![endif]-->
 </head>
 <body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="container">
 
 
@@ -67,7 +78,7 @@
 				</script>
 			</div>
 			<div id="social-facebook" class="social">
-				<a class="btn btn-mini share-pop" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;t=<text>"><i class="icon-facebook"></i><span> Facebook</span></a>
+				<div class="fb-like" data-href="http://apps.opendatacity.de/prism/" data-send="false" data-layout="button_count" data-width="180" data-show-faces="true"></div>
 			</div>
 			<div class="social embed"><a href="javascript:;" class="btn btn-primary embed-button">Einbetten</a></div>
 
@@ -87,10 +98,11 @@
 		</div>
 		<div id="text-sub">
 			<p>
-				Hintergrund: Die Routen der Kabel auf der Karte stammen vom Angebot cablemap.info. Wie die Pakete durch das Netz reisen, haben wir mit dem Programm „Traceroute“ ermittelt. Es nutzt eines der grundlegenden Internet Protokolle (IP). So fragt es ab, welche IP-Router (Schaltstellen) die Anfrage, die in einem oder mehreren „Paketen“ erfolgt, weitergeleitet wird.  Nicht jeder Router antwortet auf „Traceroute“ und welchen Unterseekabel genutzt wird, ist uns nicht bekannt. Je nach Tageszeit oder Wochentag können sich die Routen der Pakte drastisch ändern.
+				Hintergrund: Die Kabel-Routen auf der Karte stammen von <a href="www.cablemap.info">www.cablemap.info</a>. Wie die Pakete durch das Netz reisen, haben wir mit dem Programm
+				<href="http://de.wikipedia.org/wiki/Traceroute">Traceroute</a> ermittelt. Es nutzt eines der grundlegenden Internet Protokolle (IP). Es fragt ab, welche IP-Router (Schaltstellen) die Anfrage, die in einem oder mehreren „Paketen“ erfolgt, weitergeleitet wird. Doch nicht jeder Router antwortet auf „Traceroute“ und welches Unterseekabel exakt genutzt wird, ist uns auch nicht bekannt. Auch können sich je nach Tageszeit oder Wochentag die Routen der Pakete drastisch ändern.
 			</p>
 			<p>
-				So sind die in der Anwendung gezeigten Verbindungen die eingängigsten Exemplare, die wir aus vielen verschiedenen tatsächlichen Anfragen an die jeweiligen Dienste ausgewählt haben.
+				So sind die in der Anwendung gezeigten Verbindungen typische Beispiele, die wir aus vielen verschiedenen tatsächlichen Anfragen an die jeweiligen Dienste ausgewählt haben.
 			</p>
 			<p>
 				Mehr Informationen zu Prism, Tempora hier:
@@ -99,7 +111,7 @@
 				<a href="https://netzpolitik.org/?s=prism&searchsubmit=Suchen">Netzpolitik</a>.
 			</p>
 			<p>
-				Diese NewsApp kann eingebettet werden
+				Diese App kann eingebettet werden
 				(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) und liegt
 				auch <a href="/prism/en">in Englisch</a> vor.
 			</p>

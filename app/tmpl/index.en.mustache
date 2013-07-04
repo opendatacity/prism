@@ -27,6 +27,7 @@
 	<script type="text/javascript" src="/prism/assets/js/raphael.min.js"></script>
 	<script type="text/javascript" src="/prism/assets/js/rlayer-mod.min.js"></script>
 	<script type="text/javascript" src="/prism/assets/js/index.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/helper.js"></script>
 
 	<!-- polyfills -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -35,6 +36,16 @@
 	<!--[if lte IE 7]><link rel="stylesheet" href="/prism/assets/css/font-awesome-ie7.min.css" /><![endif]-->
 </head>
 <body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="container">
 	<header>
 		<h1>Where is this going?</h1>
@@ -82,7 +93,7 @@
 		<div id="text-sub">
 			<p>
 				The cable routes on the map are taken from cablemap.info. We determined how
-				packets are traveling through the internet by using the program "Traceroute".
+				packets are traveling through the internet by using the program <a href="http://en.wikipedia.org/wiki/Traceroute">Traceroute</a>.
 				It is using one of the basic Internet Protocols (IP): Asking every IP-router
 				(think of it as a switchboard), which is forwarding a packet, about its identity.
 				Not every router is answering to Traceroute and which cable is used, we don't know.
@@ -100,7 +111,7 @@
 
 			</p>
 			<p>
-				This NewsApp can be embedded
+				This App can be embedded
 				(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) and is
 				also avaiable <a href="/prism/de">in German</a>.
 			</p>
