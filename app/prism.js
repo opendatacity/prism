@@ -27,6 +27,8 @@ app.use(config.prefix + '/assets', express.static(__dirname + './../assets'));
 var tmpl = {
 	index_de: fs.readFileSync(path.resolve(__dirname, "tmpl/index.de.mustache")).toString(),
 	index_en: fs.readFileSync(path.resolve(__dirname, "tmpl/index.en.mustache")).toString(),
+	frame_de: fs.readFileSync(path.resolve(__dirname, "tmpl/frame.de.mustache")).toString(),
+	frame_en: fs.readFileSync(path.resolve(__dirname, "tmpl/frame.en.mustache")).toString(),
 	partial_prism: fs.readFileSync(path.resolve(__dirname, "tmpl/partial_prism.mustache")).toString()
 };
 
@@ -153,12 +155,32 @@ var site_en = mustache.render(
 	{ partial_prism: tmpl.partial_prism }
 );
 
+var frame_de = mustache.render(
+	tmpl.frame_de,
+	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_de_str, agencies: agencies_str },
+	{ partial_prism: tmpl.partial_prism }
+);
+
+var frame_en = mustache.render(
+	tmpl.frame_en,
+	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_en_str, agencies: agencies_str },
+	{ partial_prism: tmpl.partial_prism }
+);
+
 app.get(config.prefix, function (req, res) {
 	res.send(site_de);
 });
 
 app.get(config.prefix + '/', function (req, res) {
 	res.send(site_de);
+});
+
+app.get(config.prefix + '/frame.de', function (req, res) {
+	res.send(frame_de);
+});
+
+app.get(config.prefix + '/frame.en', function (req, res) {
+	res.send(frame_en);
 });
 
 app.get(config.prefix + '/de', function (req, res) {

@@ -48,6 +48,7 @@ header #social {
 	margin: 0px;
 	padding: 0px;
 	width: 100px;
+	z-index: 100;
 }
 
 header .social {
@@ -325,7 +326,7 @@ footer .social a i {
 
 .leaflet-top {
 	/*text container on layer*/
-	width: 50%;
+	width: 400px;
 	display: none;
 }
 
@@ -597,6 +598,7 @@ circle:hover {
 	bottom: 0px;
 	background-color: rgba(0,0,0,0.7);
 	overflow-y: auto;
+	z-index: 1000;
 
 }
 
