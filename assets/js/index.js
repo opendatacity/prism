@@ -3,6 +3,19 @@ var map = null;
 var layers = [];
 var alldata = null;
 
+var services = {
+	"Germany": "de",
+	"Spain": "es",
+	"France": "fr",
+	"Italy": "it",
+	"Israel": "il",
+	"Russia": "ru",
+	"United Kingdom": "uk",
+	"United States": "us"
+};
+
+var countries;
+
 $(document).ready(function(){
 
 	/* urls */
@@ -23,6 +36,8 @@ $(document).ready(function(){
 		
 	/* submit button */
 	$('#adress').submit(function () {
+		
+		countries = [];
 		
 		$('html, body').animate({
 			scrollTop: ($("#search").offset().top - 20)
@@ -103,6 +118,19 @@ function addPulse(latlng) {
 }
 
 function getHopsText(hop) {
+	
+	if (countries.indexOf(hop.geoip.location.address.country) < 0 ) {
+		countries.push(hop.geoip.location.address.country);
+		if (hop.geoip.location.address.country in services) {
+			var $s = $('<div class="service service-'+services[hop.geoip.location.address.country]+'"></div>').hide().appendTo($('body'));
+			$s.fadeIn(500, function(){
+				$s.fadeOut(500, function(){
+					$s.remove();
+				});
+			});
+		}
+	}
+	
 	if (("city" in hop.geoip.location.address) && (hop.geoip.location.address.city !== "")) {
 		return '<div class="hop" title="IP: '+hop.ip+'"><span class="city">'+hop.geoip.location.address.city+'</span>, <span class="country">'+hop.geoip.location.address.country+'</span></div>';
 	} else {
