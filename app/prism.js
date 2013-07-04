@@ -145,25 +145,25 @@ var jstexts_en_str = JSON.stringify(jstexts_en);
 
 var site_de = mustache.render(
 	tmpl.index_de,
-	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_de_str, agencies: agencies_str },
+	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_de_str, agencies: agencies_str, isFrame: false},
 	{ partial_prism: tmpl.partial_prism }
 );
 
 var site_en = mustache.render(
 	tmpl.index_en,
-	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_en_str, agencies: agencies_str },
+	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_en_str, agencies: agencies_str, isFrame: false},
 	{ partial_prism: tmpl.partial_prism }
 );
 
 var frame_de = mustache.render(
 	tmpl.frame_de,
-	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_de_str, agencies: agencies_str },
+	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_de_str, agencies: agencies_str, isFrame: true },
 	{ partial_prism: tmpl.partial_prism }
 );
 
 var frame_en = mustache.render(
 	tmpl.frame_en,
-	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_en_str, agencies: agencies_str },
+	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, jstexts: jstexts_en_str, agencies: agencies_str, isFrame: true },
 	{ partial_prism: tmpl.partial_prism }
 );
 

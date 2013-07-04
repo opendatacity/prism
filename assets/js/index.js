@@ -46,7 +46,7 @@ RaPath.prototype = {
 		info.clear();
 	},
 	start: function (geotrace) {
-		$('.leaflet-top').show();
+		$('.leaflet-top').fadeIn();
 //		$('#' + id).addClass('active');
 		this.clear();
 		this.geotrace = geotrace;
@@ -175,7 +175,7 @@ function init() {
 	map.addLayer(
 		new L.TileLayer("http://map.opendatacloud.de/trace/{z}/{x}/{y}.png ",
 			{attribution: 'OpenDataCity, CC-BY',
-				minZoom: 3,
+				minZoom: 2,
 				maxZoom: 5}
 		)
 	);
@@ -190,13 +190,16 @@ function init() {
 	};
 	legend.addTo(map);
 
-
 	info = L.control({position: 'topleft'});
 	info.onAdd = function (map) {
 		var div = L.DomUtil.create('div', 'hops');
-		this._div = $(div); // create a div with a class "info"
+		this._div = $(div);
 		this._div.attr('id', 'hops');
 		this._div.empty();
+		if (isFrame) {
+			this.append(texts.tagline);
+			this.append(texts.subline);
+		}
 		return div;
 	};
 	info.setText = function (txt) {
@@ -215,7 +218,8 @@ function init() {
 	};
 	info.addTo(map);
 
-	var lines = [texts.helpline];
+
+	//var lines = [texts.helpline];
 	//new Typing().beginTyping(lines, $('#hops'));
 }
 
