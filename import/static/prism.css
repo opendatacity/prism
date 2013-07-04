@@ -1,0 +1,151 @@
+/*general*/
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*[hidden] {
+	display: none;
+}
+
+.border {
+	border: 1px solid #a8a8a8;
+	border-radius: 3px;
+}
+
+#fix {
+
+	/*width: 100%;*/
+	/*height: 600px;*/
+/*}	width: 520px;*/
+	/*max-width: 520px;*/
+	/*max-height: 600px;*/
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+}
+
+@media screen and (max-width: 524px) {
+	/*#container, footer, #sidebar, #content {*/
+		/*width: 292px;*/
+	/*}*/
+
+	/*#content article h2 {*/
+		/*font-size: 24px;*/
+	/*}*/
+
+	/*#content .postinfo li {*/
+		/*margin: 0 10px 0 0;*/
+	/*}*/
+
+	/*#sidebar #social {*/
+		/*margin: 0;*/
+	/*}*/
+
+	/*#sidebar #search #searchbar {*/
+		/*width: 230px;*/
+	/*}*/
+}
+
+/*texts*/
+
+#tagline {
+	font-weight: bold;
+	text-transform: uppercase;
+	display: block;
+}
+
+#typer p:first-child {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.typing {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+
+.leaflet-bottom {
+/*text container on layer*/
+	width: 97%;
+}
+
+.hops {
+	border: 1px solid #a8a8a8;
+	width: 100%;
+	height: 80px;
+	margin-left: 10px;
+	border-radius: 3px;
+	color: lime;
+	padding: 4px;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.hops p {
+	display: block;
+	width: 100%;
+	margin: 0.2em 0;
+	clear: both;
+}
+
+
+/*map*/
+
+.leaflet-control-attribution {
+	display: none;
+}
+
+#map {
+	margin-top: 4px;
+	width: 99%;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*buttons*/
+
+#buttons {
+	padding-left: 1px;
+	text-align: center;
+}
+
+.btn-route img {
+}
+
+.btn-route {
+	margin-right: 1px;
+	padding-top: 2px;
+	margin-top: 2px;
+	padding-bottom: 2px;
+	min-height: 40px;
+	line-height: 40px;
+	height: 40px;
+	border: 1px solid #a8a8a8;
+	border-radius: 3px;
+	display: inline-block;
+}
+
+.active {
+	background-color: #e9f8a5;
+}
+
+/*animation*/
+
+path {
+	stroke: #0e06e4;
+	stroke-width: 1px;
+}
+
+path:hover {
+	stroke: brown;
+}
+
+circle {
+	cursor: pointer;
+}
+
+circle:hover {
+	stroke: brown;
+}
