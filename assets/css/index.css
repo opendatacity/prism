@@ -239,6 +239,30 @@ body {
 				color: #ccc;
 				
 			}
+			
+	.service {
+		
+		display: block;
+		position: fixed;
+		z-index: 1000;
+		left: 0px;
+		right: 0px;
+		top: 0px;
+		bottom: 0px;
+		background-color: rgba(0,0,0,0.8);
+		background-position: center center;
+		background-repeat: no-repeat;
+		
+	}
+	
+		.service-de { background-image: url(../img/services/de.png); }
+		.service-es { background-image: url(../img/services/es.png); }
+		.service-fr { background-image: url(../img/services/fr.png); }
+		.service-il { background-image: url(../img/services/il.png); }
+		.service-it { background-image: url(../img/services/it.png); }
+		.service-ru { background-image: url(../img/services/ru.png); }
+		.service-uk { background-image: url(../img/services/uk.png); }
+		.service-us { background-image: url(../img/services/us.png); }
 
 /* by ffalt */
 
