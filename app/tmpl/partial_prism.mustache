@@ -1,0 +1,15 @@
+<script>
+	var routedata = {{{routedata}}};
+	var geoinfo = {{{geoinfo}}};
+	var agencies = {{{agencies}}};
+	var texts = {{{jstexts}}};
+</script>
+
+<div id="fix">
+	<div id="map" class="border"></div>
+	<div id="buttons">
+		{{#routes}}
+		<div class="btn-route"><a href="javascript:;" onclick="showRoute('{{id}}')" title="{{name}}"><img alt="{{name}}" src="/prism/assets/img/logos/{{img}}"/></a></div>
+		{{/routes}}
+	</div>
+</div>
