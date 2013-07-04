@@ -106,32 +106,7 @@ body {
 			margin-top: 50px;
 			
 		}
-		
-			#search {
-				
-				display: block;
-				position: relative;
-				margin: 0px;
-				padding: 0px;
-				width: 100%;
-				height: 50px;
-				
-			}
-			
-			#urls {}
-				
-				#urls .btn {
 
-					padding: 2px 1px;
-
-				}
-
-				#urls img {
-					
-					height: 26px;
-					
-				}
-			
 			#map {
 			
 				display: block;
@@ -142,38 +117,6 @@ body {
 
 			}
 
-			#ips {
-				
-				display: block;
-				position: absolute;
-				min-height: 20px;
-				right: 10px;
-				top: 60px;
-				min-width: 120px;
-				z-index: 200;
-				
-			}
-			
-				#ips .hop {
-					
-					display: block;
-					position: relative;
-					margin: 0px;
-					padding: 3px 0px;
-					color: #fff;
-					text-shadow: 0px 0px 5px #000;
-					text-align: right;
-					font-size: 12px;
-					line-height: 14px;
-					
-				}
-				
-					#ips .hop .country {
-						
-						font-weight: bold;
-						
-					}
-		
 		#text-sub {
 			
 			padding: 50px 0px;
@@ -299,9 +242,102 @@ body {
 
 /* by ffalt */
 
+/*general*/
+
 *[hidden] {
 	display: none;
 }
+
+.border {
+	border: 1px solid #a8a8a8;
+	border-radius: 3px;
+}
+
+#fix {
+}
+
+/*texts*/
+
+#tagline {
+	font-weight: bold;
+	text-transform: uppercase;
+	display: block;
+}
+
+#typer p:first-child {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.typing {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.leaflet-bottom {
+	/*text container on layer*/
+	right:0;
+	margin-right: 30px !important;
+}
+
+.hops {
+	border: 1px solid #a8a8a8;
+	width: 100%;
+	margin-left: 10px;
+	height: 80px;
+	border-radius: 3px;
+	color: lime;
+	padding: 4px;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.hops p {
+	display: block;
+	width: 100%;
+	margin: 0.2em 0;
+	clear: both;
+}
+
+#agencies {
+	color: #fff123;
+	font-size: larger;
+}
+
+/*map*/
+
+.leaflet-control-attribution {
+	display: none;
+}
+
+/*buttons*/
+
+#buttons {
+	padding-left: 1px;
+	text-align: center;
+}
+
+.btn-route img {
+}
+
+.btn-route {
+	margin-right: 1px;
+	padding-top: 2px;
+	margin-top: 2px;
+	padding-bottom: 2px;
+	min-height: 40px;
+	line-height: 40px;
+	height: 40px;
+	border: 1px solid #a8a8a8;
+	border-radius: 3px;
+	display: inline-block;
+}
+
+.active {
+	background-color: #e9f8a5;
+}
+
+/*animation*/
 
 path {
 	stroke: #0e06e4;
@@ -311,3 +347,126 @@ path {
 path:hover {
 	stroke: brown;
 }
+
+circle {
+	cursor: pointer;
+}
+
+circle:hover {
+	stroke: brown;
+}
+
+.typer {
+	display: block;
+	width: 100%;
+	margin: 0.2em 0;
+	clear: both;
+}
+
+.typing {
+	float: left !important;
+}
+
+#insert-point {
+	position: relative;
+	display: block;
+	height: 16px;
+	width: 2px;
+	background: #fff;
+	-webkit-animation: fader 1s linear infinite;
+	-moz-animation: fader 1s linear infinite;
+	animation: fader 1s linear infinite;
+	float: left !important;
+}
+
+@-webkit-keyframes fader {
+	0% {
+		opacity: 0;
+	}
+	49% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes fader {
+	0% {
+		opacity: 0;
+	}
+	49% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-ms-keyframes fader {
+	0% {
+		opacity: 0;
+	}
+	49% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-o-keyframes fader {
+	0% {
+		opacity: 0;
+	}
+	49% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fader {
+	0% {
+		opacity: 0;
+	}
+	49% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+
