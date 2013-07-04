@@ -9,7 +9,8 @@ var tracegeoip = require(path.resolve(__dirname, 'lib/tracegeoip'));
 
 var app = express();
 
-app.set('port', process.env.PORT || 20016);
+app.set('port', process.env.APP_PORT || 9910);
+app.set('port', process.env.APP_HOSTNAME || "localhost");
 app.use(express.favicon());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -35,6 +36,6 @@ app.get('/prism/api/tracegeoip/:cmd', function (req, res) {
 	}
 });
 
-http.createServer(app).listen(app.get('port'), function () {
+http.createServer(app).listen(app.get('port'), app.get('host'), function () {
 	console.log('Express server listening on port ' + app.get('port'));
 });
