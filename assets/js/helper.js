@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 			$('#embed-size',$f).show();
 					switch ($size) {
-						case 'large':  var $wh = 'width="860" height="610"'; break;
+						case 'large':  var $wh = 'width="520" height="490"'; break;
 						case 'medium': var $wh = 'width="480" height="490"'; break;
 						case 'small':  var $wh = 'width="360" height="576"'; break;
 					}
