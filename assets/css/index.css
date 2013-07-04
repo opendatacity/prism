@@ -156,21 +156,16 @@ header #switch-language ul li.active a:focus {
 
 }
 
-#text-sub p {
+#text-sub p, #text-intro p {
 
 	line-height: 1.6em;
-	font-size: 1.1em;
+	font-size: 18px !important;
 	color: #666;
 
 }
 
 #text-intro {
 	margin-right: 150px;
-}
-
-.lead, #text-sub {
-	font-size: 18px;
-!important;
 }
 
 footer {
