@@ -1,178 +1,246 @@
+var DEFAULT_POINT = new L.LatLng(52.50085, 13.42232);
+var map;
+var rapath;
+var info;
 
-var map = null;
-var layers = [];
-var alldata = null;
+function RaPath() {
+	this.layers = [];
+}
 
-var services = {
-	"Germany": "de",
-	"Spain": "es",
-	"France": "fr",
-	"Italy": "it",
-	"Israel": "il",
-	"Russia": "ru",
-	"United Kingdom": "uk",
-	"United States": "us"
+RaPath.prototype = {
+	addPathPart: function (hop_src, hop_dest, cb) {
+		var b = new R.BezierAnim([hop_src.p, hop_dest.p], {}, function () {
+			if (cb)
+				cb();
+		});
+		this.layers.push(b);
+		map.addLayer(b);
+	},
+	addPulse: function (hop) {
+		var pulse = new R.Pulse(
+			hop.p,
+			3,
+			{'stroke': '#2478ad', 'fill': '#30a3ec'},
+			{'stroke': '#30a3ec', 'stroke-width': 2});
+		pulse.tooltip = this.getHopsText(hop);
+//		var caller = this;
+		pulse.click = function (e) {
+			//alert(caller.getHopsText(hop));
+//			var popup = L.popup()
+//				.setLatLng(hop.p)
+//				.setContent(caller.getHopsText(hop))
+//				.openOn(map);
+		};
+		this.layers.push(pulse);
+		map.addLayer(pulse);
+		return pulse;
+	},
+	getHopsText: function (hop) {
+		return hop.ip + ' - ' + (hop.geo.city ? hop.geo.city + ', ' : '') + hop.geo.country;
+	},
+	clear: function () {
+		if (this.layers.length > 0)
+			this.layers.forEach(function (l) {
+				map.removeLayer(l);
+			});
+		info.clear();
+	},
+	start: function (geotrace) {
+		$('.leaflet-control-zoom').hide();
+//		$('#' + id).addClass('active');
+		this.clear();
+		this.geotrace = geotrace;
+		this.layers = [];
+		info.appendText(geotrace.name);
+		map.panTo(this.geotrace.hops[0].p);
+		this.processStep(0);
+	},
+	processStep: function (index) {
+		var hop = this.geotrace.hops[index];
+		info.appendText(this.getHopsText(hop));
+		this.addPulse(hop);
+		map.panTo(hop.p);
+		var caller = this;
+		window.setTimeout(function () {
+			caller.stepPath(index + 1);
+		}, 200);
+	},
+	displayEnd: function () {
+		$('.leaflet-control-zoom').show();
+		var result = [];
+		for (key in this.geotrace.agencies) {
+			result.push(this.geotrace.agencies[key].name);
+		}
+		info.setHTML(
+			'<div id="agencies">' + texts.resultline + '<br/>' + result.join(', ') + '</div>'
+		);
+		map.fitBounds(this.geotrace.bounds);
+	},
+	stepPath: function (index) {
+		var caller = this;
+		if (index >= this.geotrace.hops.length) {
+			window.setTimeout(function () {
+				caller.displayEnd();
+			}, 2000);
+			return;
+		}
+		this.addPathPart(this.geotrace.hops[index - 1], this.geotrace.hops[index], function () {
+			caller.processStep(index);
+		});
+	}
 };
 
-var countries;
-
-$(document).ready(function(){
-
-	/* urls */
-	
-	$('a','#urls').click(function(evt){
-		evt.preventDefault();
-		$('#input').val($(this).attr('href').replace(/^.*\/\/([a-z\.]+)\/.*$/,'$1'));
-		$('#adress').submit();
-		return false;
-	})
-
-	/* share */
-	$('.share-pop').click(function(evt){
-		evt.preventDefault();
-		window.open($(this).attr('href'), "share", "width=500,height=300,status=no,scrollbars=no,resizable=no,menubar=no,toolbar=no");
-		return false;
-	});
-		
-	/* submit button */
-	$('#adress').submit(function () {
-		
-		countries = [];
-		
-		$('html, body').animate({
-			scrollTop: ($("#search").offset().top - 20)
-		}, 500);
-		
-		$('#btn').attr("disabled", "disabled");
-		$('#input').attr("disabled", "disabled");
-		$('#spinner').removeAttr("hidden");
-		$.ajax({
-			url: '/prism/api/tracegeoip/' + encodeURIComponent($('#input').val()),
-			dataType: 'json',
-			timeout: 9999999999,
-			success: function (data) {
-				if (data)
-					startPath(data);
-				$('#spinner').attr("hidden", "hidden");
-				$('#btn').removeAttr("disabled");
-				$('#input').removeAttr("disabled");
-			},
-			error: function (xhr, ts, err) {
-				$('#spinner').attr("hidden", "hidden");
-				$('#btn').removeAttr("disabled");
-				$('#input').removeAttr("disabled");
-// FIXME: no alerts!
-//				alert(xhr.status + ': ' + err);
-			}
-		});
-		return false;
-	});
-	
-	/* load map */
-	map = new L.Map("map", {
-		center: new L.LatLng(52.50085, 13.42232),
-		zoom: 4
-	}).addLayer(new L.TileLayer(
-		"http://{s}.tile.cloudmade.com/1a1b06b230af4efdbb989ea99e9841af/998/256/{z}/{x}/{y}.png",
-		{attribution: '© 2012 CloudMade, OpenStreetMap contributors, CC-BY-SA'}
-	));
-	
-});
-
-function load(url) {
-	loadData("static/json/" + url + ".json");
+function Typing() {
+//slightly modified from https://github.com/rachstock/typing-animation
 }
 
-function loadData(url) {
-	$.ajax({
-		url: url,
-		dataType: 'json',
-		success: function (data) {
-			startPath(data);
-		},
-		error: function (xhr, ts, err) {
-//	FIXME: no alerts.
-//			alert(xhr.status + ': ' + err);
+Typing.prototype = {
+	lines: '',
+	container: null,
+	insertPoint: null,
+	para: null,
+
+	beginTyping: function (lines, parent) {
+		this.lines = lines;
+
+		// Create the typer div
+		this.container = $(parent);//$(document.createElement('div'));
+//		this.container.attr('id', 'typer');
+//		parent.append(this.container);
+
+		this.container.empty();
+		// Create the 'insertion point'
+		this.insertPoint = $(document.createElement('span'));
+		this.insertPoint.attr('id', 'insert-point');
+
+		// Create our paragraph tags
+		for (var i = 0, l = lines.length; i < l; i++) {
+			var p = $(document.createElement('p'));
+			p.attr('class', 'typer');
+			p.html('<span class="typing"></span>');
+			this.container.append(p);
 		}
-	});
-}
 
-function addPathPart(src, dest, cb) {
-	var b = new R.BezierAnim([src, dest], {}, function () {
-		if (cb)
-			cb();
-	});
-	layers.push(b);
-	map.addLayer(b);
-}
+//		this.insertPoint.css('height', fontSize);
 
-function addPulse(latlng) {
-	var p = new R.Pulse(
-		latlng,
-		3,
-		{'stroke': '#2478ad', 'fill': '#30a3ec'},
-		{'stroke': '#30a3ec', 'stroke-width': 2});
-	layers.push(p);
-	map.addLayer(p);
-	return p;
-}
-
-function getHopsText(hop) {
-	
-	if (countries.indexOf(hop.geoip.location.address.country) < 0 ) {
-		countries.push(hop.geoip.location.address.country);
-		if (hop.geoip.location.address.country in services) {
-			var $s = $('<div class="service service-'+services[hop.geoip.location.address.country]+'"></div>').hide().appendTo($('body'));
-			$s.fadeIn(500, function(){
-				$s.fadeOut(500, function(){
-					$s.remove();
-				});
-			});
-		}
-	}
-	
-	if (("city" in hop.geoip.location.address) && (hop.geoip.location.address.city !== "")) {
-		return '<div class="hop" title="IP: '+hop.ip+'"><span class="city">'+hop.geoip.location.address.city+'</span>, <span class="country">'+hop.geoip.location.address.country+'</span></div>';
-	} else {
-		return '<div class="hop" title="IP: '+hop.ip+'"><span class="country">'+hop.geoip.location.address.country+'</span></div>';
-	}
-}
-
-function startPath(pathdata) {
-	$('#ips').empty();
-	alldata = pathdata;
-	layers.forEach(function (l) {
-		map.removeLayer(l);
-	});
-	layers = [];
-	var path = [];
-	pathdata.hops.forEach(function (hop) {
-		var p =
-			new L.LatLng(
-				hop.geoip.location.coords.latitude,
-				hop.geoip.location.coords.longitude
-			);
-		path.push(p);
-	});
-	$('#ips').append(getHopsText(alldata.hops[0]));
-	map.panTo(path[0]);
-	addPulse(path[0]);
-	setTimeout(function () {
-		stepPath(path, 1);
-	}, 500);
-}
-
-function stepPath(path, index) {
-	if (index >= path.length) {
-		console.log('over');
-		return;
-	}
-	addPathPart(path[index - 1], path[index], function () {
-		$('#ips').append(getHopsText(alldata.hops[index]));
-		addPulse(path[index]);
-		map.panTo(path[index]);
+		// Select first paragraph, add the insertion point, start typing
+		var p = this.container.find('p:first');
+		p.append(this.insertPoint);
+		var caller = this;
 		setTimeout(function () {
-			stepPath(path, index + 1);
-		}, 500);
-	});
+			caller.typeLine(p, 0);
+		}, 2000);
+	},
+
+	typeLine: function (p, index) {
+		var span = p.find('span.typing');
+		var line = this.lines[index];
+		// Begin typing line
+		this.typeLetter(p, index, 0, span, line);
+	},
+
+	typeLetter: function (p, lineIndex, letterIndex, span, line) {
+		// add the letter
+		span.append(line[letterIndex]);
+		var caller = this;
+		if (letterIndex + 1 < line.length) {
+			// Add another letter (after a delay)
+			setTimeout(function () {
+					caller.typeLetter(p, lineIndex, letterIndex + 1, span, line);
+				}, Math.floor((Math.random() * 100) + 50)
+			);
+		} else {
+			// We've reached the end of the line, callback after a short delay
+			setTimeout(function () {
+				caller.finishLine(p, lineIndex)
+			}, 500);
+		}
+	},
+
+	finishLine: function (p, index) {
+		// When we've finished a line of type, start a new one
+		if (index + 1 < this.lines.length) {
+			p = p.next();
+			this.insertPoint.remove().appendTo(p);
+			this.typeLine(p, index + 1);
+		} else {
+			this.insertPoint.remove();
+		}
+	}
+};
+
+function init() {
+
+	map = new L.Map("map", { center: DEFAULT_POINT, zoom: 3});
+
+	map.addLayer(
+		new L.TileLayer("http://sloppy.odcm.opendatacloud.de/trace/{z}/{x}/{y}.png ",
+			{attribution: 'OpenDataCity, CC-BY'}
+		)
+	);
+
+	rapath = new RaPath();
+
+	info = L.control({position: 'bottomleft'});
+	info.onAdd = function (map) {
+		var div = L.DomUtil.create('div', 'hops');
+		this._div = $(div); // create a div with a class "info"
+		this._div.attr('id', 'hops');
+		this._div.empty();
+		return div;
+	};
+	info.setText = function (txt) {
+		this._div.text(txt);
+	};
+	info.setHTML = function (h) {
+		this._div.html(h);
+	};
+	info.appendText = function (txt) {
+		if (this._div.children().length > 3)
+			this._div.children().first().remove();
+		this._div.append('<p>' + txt + '</p>');
+	};
+	info.clear = function () {
+		this._div.empty();
+	};
+	info.addTo(map);
+
+	var lines = [texts.tagline, texts.subline, texts.helpline];
+	new Typing().beginTyping(lines, $('#hops'));
 }
+
+function showRoute(id) {
+	if (routedata[id]) {
+		var route_agencies = {};
+		var routes = routedata[id].routes;
+		if (routes && routes.length) {
+			var route = routes[(parseInt((Math.random() * 1000), 10) % routes.length)];
+			var geotrace = {};
+			geotrace.hops = [];
+			for (var i = 0; i < route.trace.length; i++) {
+				var ip = route.trace[i];
+				var geo = geoinfo[ip];
+				var hop = {
+					p: new L.LatLng(geo.lat, geo.lng),
+					ip: ip,
+					geo: geo
+				};
+				var agency = agencies[geo.country_code];
+				if (agency)
+					route_agencies[agency.name] = agency;
+				geotrace.hops.push(hop);
+			}
+			var southWest = new L.LatLng(route.south, route.west),
+				northEast = new L.LatLng(route.north, route.east);
+			geotrace.bounds = new L.LatLngBounds(southWest, northEast);
+			geotrace.agencies = route_agencies;
+			geotrace.id = id;
+			geotrace.name = routedata[id].name;
+			rapath.start(geotrace);
+		}
+	}
+}
+
+$(document).ready(function () {
+	init();
+});
