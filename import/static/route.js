@@ -67,11 +67,13 @@ RaPath.prototype = {
 	},
 	displayEnd: function () {
 		$('.leaflet-control-zoom').show();
+		var result =  [];
+		for (key in this.geotrace.agencies) {
+			result.push(this.geotrace.agencies[key].name);
+		}
+
 		info.setHTML(
-			'You have been abgeschnorchelt by:' + '<br/>' +
-				'this' + '<br/>' +
-				'and' + '<br/>' +
-				'that'
+			'You have been abgeschnorchelt by:' + '<br/>' + result.join(', ')
 		);
 		map.fitBounds(this.geotrace.bounds);
 	},
@@ -131,6 +133,7 @@ function init() {
 
 function showRoute(id) {
 	if (routedata[id]) {
+		var route_agencies = {};
 		var routes = routedata[id].routes;
 		if (routes && routes.length) {
 			var route = routes[(parseInt((Math.random() * 1000), 10) % routes.length)];
@@ -144,11 +147,15 @@ function showRoute(id) {
 					ip: ip,
 					geo: geo
 				};
+				var agency = agencies[geo.country_code];
+				if (agency)
+					route_agencies[agency.name] = agency;
 				geotrace.hops.push(hop);
 			}
 			var southWest = new L.LatLng(route.south, route.west),
 				northEast = new L.LatLng(route.north, route.east);
 			geotrace.bounds = new L.LatLngBounds(southWest, northEast);
+			geotrace.agencies = route_agencies;
 			geotrace.id = id;
 			geotrace.name = routedata[id].name;
 			rapath.start(geotrace);

@@ -67,7 +67,8 @@ routes_infos.forEach(function (route) {
 						lat: hop.geoip.location.coords.latitude,
 						lng: hop.geoip.location.coords.longitude,
 						city: hop.geoip.location.address.city,
-						country: hop.geoip.location.address.country
+						country: hop.geoip.location.address.country,
+						country_code: hop.geoip.location.address.country_code
 					};
 				route.push(hop.ip);
 			});
@@ -77,6 +78,12 @@ routes_infos.forEach(function (route) {
 	routes_data[route.id] = {name: route.name, routes: routes};
 });
 
+var agencies = {
+	"DE":{name:"BND", image:"todo"},
+	"US":{name:"NSA", image:"todo"}
+}
+
+var agencies_str = JSON.stringify(agencies);
 var routedata_str = JSON.stringify(routes_data);
 var geoinfo_str = JSON.stringify(geo_info);
 
@@ -91,12 +98,12 @@ var texts = {
 
 var site = mustache.render(
 	tmpl.index,
-	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, texts: texts },
+	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, texts: texts, agencies:agencies_str },
 	{ partial_prism: tmpl.partial_prism }
 );
 var frame = mustache.render(
 	tmpl.frame,
-	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, texts: texts },
+	{ title: 'Prism', routes: routes_infos, routedata: routedata_str, geoinfo: geoinfo_str, texts: texts, agencies:agencies_str },
 	{ partial_prism: tmpl.partial_prism }
 );
 
