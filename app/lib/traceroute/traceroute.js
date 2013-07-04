@@ -83,10 +83,7 @@ function trace(host,cb) {
         });
       }
       else {
-		console.log('traceroute -q 1 -w 1 -m 16 -n ' + host);
-        traceroute = child.exec('traceroute -q 1 -w 1 -m 24 -n ' + host, function (err,stdout,stderr) {
-			console.log("HERE!");
-			console.log(stdout);
+        traceroute = child.exec('traceroute -q 1 -w 1 -m 32 -n ' + host, function (err,stdout,stderr) {
           if (!err)
             parseOutput(stdout,cb);
         });
