@@ -133,7 +133,6 @@ Typing.prototype = {
 	},
 
 	typeLine: function (p, index) {
-		console.log('type line ' + index);
 		var span = p.find('span.typing');
 		var line = this.lines[index];
 		// Begin typing line
@@ -162,7 +161,6 @@ Typing.prototype = {
 		// When we've finished a line of type, start a new one
 		if (index + 1 < this.lines.length) {
 			p = p.next();
-			console.log(p);
 			this.insertPoint.remove().appendTo(p);
 			this.typeLine(p, index + 1);
 		} else {
