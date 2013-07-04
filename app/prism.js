@@ -102,6 +102,7 @@ var jstexts_de = {
 	route_btn_hint: 'Anzeige der Route zu',
 	requestline: 'Anfrage an',
 	resultline: 'Möglicher Zugriff dieser Geheimdienste:',
+	cable: 'Seekabel',
 	countries: {
 		"DE": {name: "Deutschland"},
 		"FR": {name: "Frankreich"},
@@ -120,6 +121,7 @@ var jstexts_en = {
 	route_btn_hint: 'Display a route to',
 	requestline: 'Request to',
 	resultline: 'Probalby accessed by these security services:',
+	cable: 'submarine cable',
 	countries: {
 		"DE": {name: "Germany"},
 		"FR": {name: "France"},

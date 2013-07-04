@@ -182,6 +182,15 @@ function init() {
 
 	rapath = new RaPath();
 
+	var legend = L.control({position: 'bottomleft'});
+	legend.onAdd = function (map) {
+		var div = L.DomUtil.create('div', 'legend');
+		$(div).html('<div class="legend border"><span id="cable">&nbsp</span> <a href="http://www.cablemap.info/">' + texts.cable + '</a></div>');
+		return div;
+	};
+	legend.addTo(map);
+
+
 	info = L.control({position: 'topleft'});
 	info.onAdd = function (map) {
 		var div = L.DomUtil.create('div', 'hops');
