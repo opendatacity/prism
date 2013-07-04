@@ -36,12 +36,8 @@ $(document).ready(function(){
 			$size = ($size === "") ? "large" : $size;
 
 			if ($lang == "de") {
-				var text   = 'Die geblockten Top-1000-YouTube-Videos';
-				var suffix = 'Unterstützt durch <a href="http://www.myvideo.de">MyVideo</a>. Realisiert von <a href="http://www.opendatacity.de/">OpenDataCity</a>. Anwendung steht unter <a rel="license" href="http://creativecommons.org/licenses/by/3.0/de/">CC-BY 3.0</a>.';
 				var file   = 'frame.de.html';
 			} else {
-				var text   = 'Top 1000 YouTube Videos';
-				var suffix = 'Supported by <a href="http://www.myvideo.de">MyVideo</a>. Made by <a href="http://www.opendatacity.de/">OpenDataCity</a>. This App is under <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">CC-BY 3.0</a>.';
 				var file   = 'frame.en.html';
 			}
 

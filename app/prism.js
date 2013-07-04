@@ -175,11 +175,11 @@ app.get(config.prefix + '/', function (req, res) {
 	res.send(site_de);
 });
 
-app.get(config.prefix + '/frame.de', function (req, res) {
+app.get(config.prefix + '/frame.de.html', function (req, res) {
 	res.send(frame_de);
 });
 
-app.get(config.prefix + '/frame.en', function (req, res) {
+app.get(config.prefix + '/frame.en.html', function (req, res) {
 	res.send(frame_en);
 });
 
