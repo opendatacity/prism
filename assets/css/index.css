@@ -575,8 +575,8 @@ circle:hover {
 	background-color: #e09d40;
 	max-height: 3px;
 	height: 3px;
-	min-width: 10px;
-	width: 10px;
+	min-width: 20px;
+	width: 20px;
 	margin-left: 3px;
 	top: 6px;
 	display: inline-block;
@@ -587,6 +587,7 @@ circle:hover {
 }
 
 .legend {
-	font-size: 10px;
+	font-size: 12px;
 	background-color: #fff;
+	padding:4px;
 }
