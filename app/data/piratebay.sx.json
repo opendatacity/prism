@@ -1,0 +1,196 @@
+{
+	"url": "piratebay.sx",
+	"waypoints": [
+		[
+			"9",
+			"51"
+		],
+		[
+			"9",
+			"51"
+		],
+		[
+			"-77.0763",
+			"38.9144"
+		],
+		[
+			"-77.0763",
+			"38.9144"
+		],
+		[
+			"-77.0763",
+			"38.9144"
+		],
+		[
+			"-97",
+			"38"
+		],
+		[
+			"-104.858",
+			"39.569"
+		]
+	],
+	"hops": [
+		{
+			"89.238.64.1": [
+				0.296
+			],
+			"ip": "89.238.64.1",
+			"geoip": {
+				"ip": "89.238.64.1",
+				"timestamp": 1372865071123,
+				"location": {
+					"coords": {
+						"latitude": "51",
+						"longitude": "9"
+					},
+					"address": {
+						"city": "",
+						"country": "Germany",
+						"country_code": "DE"
+					},
+					"gmtOffset": "1",
+					"dstOffset": "2"
+				}
+			}
+		},
+		{
+			"89.238.127.46": [
+				5.021
+			],
+			"ip": "89.238.127.46",
+			"geoip": {
+				"ip": "89.238.127.46",
+				"timestamp": 1372865071543,
+				"location": {
+					"coords": {
+						"latitude": "51",
+						"longitude": "9"
+					},
+					"address": {
+						"city": "",
+						"country": "Germany",
+						"country_code": "DE"
+					},
+					"gmtOffset": "1",
+					"dstOffset": "2"
+				}
+			}
+		},
+		{
+			"149.6.141.249": [
+				5.112
+			],
+			"ip": "149.6.141.249",
+			"geoip": {
+				"ip": "149.6.141.249",
+				"timestamp": 1372865073024,
+				"location": {
+					"coords": {
+						"latitude": "38.9144",
+						"longitude": "-77.0763"
+					},
+					"address": {
+						"city": "Washington",
+						"country": "United States",
+						"country_code": "US"
+					},
+					"gmtOffset": "-5",
+					"dstOffset": "-4"
+				}
+			}
+		},
+		{
+			"154.54.61.161": [
+				5.247
+			],
+			"ip": "154.54.61.161",
+			"geoip": {
+				"ip": "154.54.61.161",
+				"timestamp": 1372865073400,
+				"location": {
+					"coords": {
+						"latitude": "38.9144",
+						"longitude": "-77.0763"
+					},
+					"address": {
+						"city": "Washington",
+						"country": "United States",
+						"country_code": "US"
+					},
+					"gmtOffset": "-5",
+					"dstOffset": "-4"
+				}
+			}
+		},
+		{
+			"154.54.77.190": [
+				5.372
+			],
+			"ip": "154.54.77.190",
+			"geoip": {
+				"ip": "154.54.77.190",
+				"timestamp": 1372865073763,
+				"location": {
+					"coords": {
+						"latitude": "38.9144",
+						"longitude": "-77.0763"
+					},
+					"address": {
+						"city": "Washington",
+						"country": "United States",
+						"country_code": "US"
+					},
+					"gmtOffset": "-5",
+					"dstOffset": "-4"
+				}
+			}
+		},
+		{
+			"130.117.14.178": [
+				5.498
+			],
+			"ip": "130.117.14.178",
+			"geoip": {
+				"ip": "130.117.14.178",
+				"timestamp": 1372865074134,
+				"location": {
+					"coords": {
+						"latitude": "38",
+						"longitude": "-97"
+					},
+					"address": {
+						"city": "",
+						"country": "United States",
+						"country_code": "US"
+					},
+					"gmtOffset": "-6",
+					"dstOffset": "-5"
+				}
+			}
+		},
+		{
+			"129.250.5.61": [
+				7.617
+			],
+			"ip": "129.250.5.61",
+			"geoip": {
+				"ip": "129.250.5.61",
+				"timestamp": 1372865074493,
+				"location": {
+					"coords": {
+						"latitude": "39.569",
+						"longitude": "-104.858"
+					},
+					"address": {
+						"city": "Englewood",
+						"country": "United States",
+						"country_code": "US"
+					},
+					"gmtOffset": "-7",
+					"dstOffset": "-6"
+				}
+			}
+		}
+	]
+}
