@@ -92,6 +92,7 @@ var agencies = {
 	"NL": {name: "AIVD", cc: "NL", long: "Algemene Inlichtingen- en Veiligheidsdienst"},
 	"CH": {name: "NDB", cc: "CH", long: "Nachrichtendienst des Bundes"},
 	"UK": {name: "GCHQ", cc: "UK", long: "Government Communications Headquaters"},
+	"GB": {name: "GCHQ", cc: "GB", long: "Government Communications Headquaters"},
 	"US": {name: "NSA", cc: "US", long: "National Security Agency"},
 	"ES": {name: "CNI", cc: "ES", long: "Centro Nacional de Inteligencia"},
 	"LU": {name: "SRE", cc: "LU", long: "Service de Renseignement de l’État"},
