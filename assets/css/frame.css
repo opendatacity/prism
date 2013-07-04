@@ -1,0 +1,46 @@
+#map {
+	width: 99%;
+	margin: 0;
+}
+
+@media screen and (max-width: 860px) {
+
+	#map {
+		height: 560px !important
+	}
+
+}
+
+@media screen and (max-width: 640px) {
+
+	#map {
+		height: 360px !important
+	}
+
+	.leaflet-left {
+		width: 94% !important;
+	}
+
+}
+
+@media screen and (max-width: 520px) {
+
+	#map {
+		height: 360px !important
+	}
+
+	.leaflet-left {
+		width: 93% !important;
+	}
+}
+
+@media screen and (max-width: 420px) {
+
+	#map {
+		height: 400px !important
+	}
+
+	.leaflet-left {
+		width: 92% !important;
+	}
+}
