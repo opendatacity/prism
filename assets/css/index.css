@@ -1,0 +1,313 @@
+
+body {
+	
+	margin: 0px;
+	pading: 0px;
+	background: #fff;
+	font-family: "Helvetica", "Arial", sans-serif;
+	height: 100%;
+	
+}
+
+	#container {
+		
+		display: block;
+		position: relative;
+		margin: 0px;
+		padding: 0px 0px 100px;
+		
+	}
+
+	header {
+		
+		display: block;
+		position: relative;
+		margin: 0px auto;
+		padding: 0px 20px;
+		max-width: 920px;
+		
+	}
+	
+		header h1 {
+			
+			padding: 50px 0px;
+			
+		}
+	
+		header #switch-language {
+			
+			display: block;
+			position: absolute;
+			right: 20px;
+			top: 0px;
+			margin: 0px;
+			padding: 0px;
+			
+		}
+
+			header #switch-language ul {
+			
+				display: block;
+				position: relative;
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+
+			}
+
+				header #switch-language ul li {
+				
+					display: block;
+					float: left;
+					position: relative;
+					margin: 0px;
+					padding: 0px;
+					list-style: none;
+				
+				}
+
+					header #switch-language ul li a {
+						
+						display: block;
+						position: relative;
+						margin: 0px;
+						padding: 5px 10px;
+						
+					}
+					
+					header #switch-language ul li.active a,
+					header #switch-language ul li.active a:active,
+					header #switch-language ul li.active a:hover,
+					header #switch-language ul li.active a:focus {
+					
+						color: #000;
+						text-decoration: none;
+						cursor: default;
+					
+					}
+
+
+	#main {
+		
+		display: block;
+		position: relative;
+		margin: 0px auto;
+		padding: 0px 20px;
+		max-width: 920px;
+		
+	}
+	
+		#app {
+			
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 550px;
+			margin-top: 50px;
+			
+		}
+		
+			#search {
+				
+				display: block;
+				position: relative;
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+				height: 50px;
+				
+			}
+			
+			#urls {}
+				
+				#urls .btn {
+
+					padding: 2px 1px;
+
+				}
+
+				#urls img {
+					
+					height: 26px;
+					
+				}
+			
+			#map {
+			
+				display: block;
+				position: relative;
+				width: 100%;
+				height: 500px;
+				z-index: 100;
+
+			}
+
+			#ips {
+				
+				display: block;
+				position: absolute;
+				min-height: 20px;
+				right: 10px;
+				top: 60px;
+				min-width: 120px;
+				z-index: 200;
+				
+			}
+			
+				#ips .hop {
+					
+					display: block;
+					position: relative;
+					margin: 0px;
+					padding: 3px 0px;
+					color: #fff;
+					text-shadow: 0px 0px 5px #000;
+					text-align: right;
+					font-size: 12px;
+					line-height: 14px;
+					
+				}
+				
+					#ips .hop .country {
+						
+						font-weight: bold;
+						
+					}
+		
+		#text-sub {
+			
+			padding: 50px 0px;
+			
+		}	
+
+			#text-sub p {
+
+				line-height: 1.6em;
+				font-size: 1.1em;
+				color: #666;
+
+			}	
+			
+		#share {
+			
+			display: block;
+			position: relative;
+			margin: 0px;
+			padding: 10px 20px;
+			background-color: #f9f9f9;
+			border-radius: 10px;
+			height: 25px;
+			line-height: 25px;
+			border: 1px solid #f0f0f0;
+			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05) inset;
+			
+		}
+
+			#share a {
+
+				line-height: 30px;
+				margin-left: 15px;
+				white-space: nowrap;
+
+			}
+			
+			#share a:hover {
+				
+				text-decoration: none;
+				
+			}
+
+			#share a i {
+
+				color: #999;
+
+			}
+			
+
+	footer {
+		
+		display: block;
+		position: fixed;
+		bottom: 0px;
+		right: 0px;
+		left: 0px;
+		margin: 0px;
+		padding: 0px;
+		border-top: 1px solid #ebebeb;
+		color: #666;
+		background-color: #fff;
+		z-index: 300;
+		
+	}
+	
+		footer p {
+		
+			display: block;
+			position: relative;
+			margin: 0px;
+			padding: 0px 10px;
+			min-height: 50px;
+			line-height: 50px;
+		
+		}
+
+			footer p a {
+				
+				color: #666 !important;
+				
+			}
+
+		footer #attribution-and-privacy {
+			
+			display: block;
+			position: relative;
+			margin: 0px;
+			padding: 9px 10px;
+			min-height: 32px;
+			line-height: 16px;
+			font-size: 12px;
+			
+		}
+		
+		footer #license {
+			
+			display: block;
+			position: relative;
+			width: 50px;
+			height: 50px;
+			text-indent: -99999px;
+			text-decoration: none;
+			color: transparent;
+			background: url(../img/cc-by.png) center center no-repeat;
+			
+		}
+		
+		footer .social {}
+
+			footer .social a {
+				
+				margin-left: 10px;
+				white-space: nowrap;
+				
+			}
+
+			footer .social a i {
+				
+				color: #ccc;
+				
+			}
+
+/* by ffalt */
+
+*[hidden] {
+	display: none;
+}
+
+path {
+	stroke: #0e06e4;
+	stroke-width: 1px;
+}
+
+path:hover {
+	stroke: brown;
+}
