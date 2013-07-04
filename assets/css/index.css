@@ -644,3 +644,7 @@ circle:hover {
 	color: #444
 
 }
+
+.upper {
+	text-transform: uppercase;
+}

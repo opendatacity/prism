@@ -100,8 +100,8 @@ var agencies = {
 
 var jstexts_de = {
 	tagline: 'Wo führt das hin?',
-	subline: 'Beispielhafte Anfragen aus Deutschland an Internetdienste',
-	helpline: 'Bitte unten Dienst auswählen',
+	subline: 'Beispiele von Anfragen aus Deutschland an Internetdienste',
+	helpline: '--- Bitte oben einen Dienst auswählen ---',
 	route_btn_hint: 'Anzeige der Route zu',
 	requestline: 'Anfrage an',
 	resultline: 'Möglicher Zugriff dieser Geheimdienste:',
@@ -120,7 +120,7 @@ var jstexts_de = {
 var jstexts_en = {
 	tagline: 'Where is this going?',
 	subline: 'Examples for Internet requests from Germany',
-	helpline: 'Please choose a service below',
+	helpline: '--- Please choose a service above ---',
 	route_btn_hint: 'Display a route to',
 	requestline: 'Request to',
 	resultline: 'Probalby accessed by these security services:',

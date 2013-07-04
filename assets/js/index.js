@@ -197,8 +197,9 @@ function init() {
 		this._div.attr('id', 'hops');
 		this._div.empty();
 		if (isFrame) {
-			this.append(texts.tagline);
+			this.append('<span class="upper">'+texts.tagline+'</span>');
 			this.append(texts.subline);
+			this.append(texts.helpline);
 		}
 		return div;
 	};
