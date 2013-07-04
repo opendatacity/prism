@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trace Prism</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- og properties for sharing -->
+	<meta property="og:title" content="Trace Prism" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="http://apps.opendatacity.de/prism/" />
+	<!-- meta property="og:image" content="" / -->
+	
+	<!-- license information -->
+	<meta name="DC.rights" scheme="DCTERMS.URI" content="http://creativecommons.org/licenses/by/3.0/" />
+
+	<!-- style sheets -->
+	<link rel="stylesheet" type="text/css" href="/prism/assets/css/leaflet.css" />
+	<link rel="stylesheet" type="text/css" href="/prism/assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/prism/assets/css/font-awesome.min.css "/>
+	<link rel="stylesheet" type="text/css" href="/prism/assets/css/index.css "/>
+
+	<!-- scripts --> 
+	<script type="text/javascript" src="/prism/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/leaflet.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/raphael.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/rlayer.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/index.js"></script>
+
+	<!-- polyfills -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!--[if lte IE 8]><script src="/prism/assets/js/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/prism/assets/css/leaflet.ie.css" /><![endif]-->
+	<!--[if lte IE 7]><link rel="stylesheet" href="/prism/assets/css/font-awesome-ie7.min.css" /><![endif]-->
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>My data: Who else is reading?</h1>
+			<nav id="switch-language">
+				<ul>
+					<li><a href="/prism/de" title="Deutsch">DE</a></li>
+					<li class="active"><a href="/prism/en" title="English">EN</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id="main" role="main">
+			<div id="text-intro">
+				<p class="lead">
+					Where exactly and how much of the Internet traffic is scanned and saved by secret services 
+					is not entirely known (at July 4th, 2013). Our visualisation shows examples of how internet 
+					packets wander around the world's internet cables while we use some of the most popular 
+					internet services. Each country your data packets visit offers an opportunity for snooping. 
+					This NewsApp can be embedded 
+					(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) and is 
+					also avaiable <a href="/prism/de">in German</a>.
+				</p>
+			</div>
+			<div id="app">
+				<!-- input form -->
+				<div id="search">
+					<form id="adress" method="post" action="javascript:;" class="form-horizontal pull-left">
+						<div class="input-append">
+							<input id="input" type="text" class="span2" value="" placeholder="URL" />
+							<button id="btn" class="btn" type="submit">Go</button>
+						</div>
+						<i id="spinner" class='icon-spinner icon-spin icon-large' hidden="true"></i>
+					</form>
+					<div id="urls" class="pull-right btn-group">
+						<a href="//amazon.de/" class="btn"><img src="/prism/assets/img/logos/logo_amazon_de_tr.png" alt="" title="" /></a>
+						<a href="//dropbox.com/" class="btn"><img src="/prism/assets/img/logos/logo_drop_tr.png" alt="" title="" /></a>
+						<a href="//facebook.com/" class="btn"><img src="/prism/assets/img/logos/logo_facebook_tr.png" alt="" title="" /></a>
+						<a href="//google.com/" class="btn"><img src="/prism/assets/img/logos/logo_google_tr.png" alt="" title="" /></a>
+						<a href="//thepiratebay.sx/" class="btn"><img src="/prism/assets/img/logos/logo_pirate_tr.png" alt="" title="" /></a>
+						<a href="//skype.com/" class="btn"><img src="/prism/assets/img/logos/logo_skype_tr.png" alt="" title="" /></a>
+						<a href="//spiegel.de/" class="btn"><img src="/prism/assets/img/logos/logo_spon_tr.png" alt="" title="" /></a>
+						<a href="//twitter.com/" class="btn"><img src="/prism/assets/img/logos/logo_twitter_tr.png" alt="" title="" /></a>
+						<a href="//sro.whatsapp.net/" class="btn"><img src="/prism/assets/img/logos/logo_whatsapp_tr.png" alt="" title="" /></a>
+						<a href="//de.wikipedia.org/" class="btn"><img src="/prism/assets/img/logos/logo_wiki_tr.png" alt="" title="" /></a>
+						<a href="//youporn.com/" class="btn"><img src="/prism/assets/img/logos/logo_youp_tr.png" alt="" title="" /></a>
+						<a href="//youtube.com/" class="btn"><img src="/prism/assets/img/logos/logo_youtube_tr.png" alt="" title="" /></a>
+					</div>
+				</div>
+				<!-- map container -->
+				<div id="map"></div>
+				<!-- ip container -->
+				<div id="ips"></div>
+			</div>
+			<div id="text-sub">
+				<p>
+					The cable routes on the map are taken from cablemap.info. We determined how 
+					packets are traveling through the internet by using the program "Traceroute". 
+					It is using one of the basic Internet Protocols (IP): Asking every IP-router 
+					(think of it as a switchboard), which is forwarding a packet, about its identity.  
+					Not every router is answering to Traceroute and which cable is used, we don't know. 
+					Depening if it's day or night, the packets can take pretty diffent routes.
+				</p>
+				<p>
+					In the end, the connections we are displaying in this app are the most telling 
+					examples we have choosen from many different real requests to the particular 
+					service.
+				</p>
+				<p>
+					More information on Prism, Tempora can be found here: ....
+				</p>
+			</div>
+			<div id="share">
+				Share this:
+				<a class="share-pop" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;text=<text>&amp;related=Prism"><i class="icon-twitter"></i><span> Twitter</span></a>
+				<a class="share-pop" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F&amp;t=<text>"><i class="icon-facebook"></i><span> Facebook</span></a>
+				<a class="share-pop" href="https://plus.google.com/share?url=http%3A%2F%2Fapps.opendatacity.de%2Fprism%2F"><i class="icon-google-plus"></i><span> Google+</span></a>
+				<a class="share-pop" href="https://alpha.app.net/intent/post?text=<text>"><i class="icon-adn"></i><span> App.net</span></a>
+				<a class="embed" href="javascript:;" id="embed-show"><i class="icon-share"></i><span> Embed this on your website</span></a>
+			</div>
+		</div>
+		<footer>
+			<p id="creator" class="pull-right">
+				An informative service by <a href="//opendatacity.de/">OpenDataCity</a>
+			</p>
+			<p id="license" class="pull-right">
+				<a href="//creativecommons.org/licenses/by/3.0/">CC BY</a>
+			</p>
+			<p id="attribution-and-privacy" class="pull-left">
+				This site utilizes 
+				<a href="//twitter.github.com/bootstrap/">Bootstrap</a>, 
+				<a href="//fortawesome.github.io/Font-Awesome/">Font Awesome</a>, 
+				<a href="//mapbox.github.io/tilemill/">Tilemill</a>,
+				<a href="//leafletjs.com/">Leaflet</a> and
+				<a href="//raphaeljs.com/">Raphaël</a>.<br />
+				The visits on this webpage are evaluated with Google Analytics.
+			</p>
+		</footer>
+	</div>
+	<!-- analytics code -->
+	<script type="text/javascript">
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-38022006-7', 'opendatacity.de');
+	  ga('send', 'pageview');
+	</script>
+</body>
