@@ -7,6 +7,10 @@
 	display: block !important;
 }
 
+.embed-footer {
+	margin-right: 10px;
+}
+
 @media screen and (max-width: 860px) {
 
 	#map {
