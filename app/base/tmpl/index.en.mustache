@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{> partial_head}}
+	<script type="text/javascript" src="/prism/assets/js/helper.js"></script>
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s);
+	js.id = id;
+	js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="embed-overlay">
+	<div id="embed-content"><h1>Share</h1>
+
+		<form name="embed-form" id="embed-form" action="javascript:;"
+			  method="post">
+			<fieldset id="embed-size" class="form-inline">
+				<legend>Size</legend>
+				<label class="radio">'+
+					<input type="radio" name="size" value="large" checked="checked"> Large (520&times;490)</label><label class="radio"><input type="radio" name="size" value="medium">
+				Medium (480&times;490)</label><label class="radio"><input type="radio" name="size" value="small"> Small (360&times;576)</label>
+			</fieldset>
+			<fieldset class="form-inline">
+				<legend>Language</legend>
+				<label class="radio"><input type="radio" name="lang" value="de" checked="checked"> German</label><label class="radio"><input type="radio" name="lang" value="en"> English</label></fieldset>
+			<h2>Code</h2>
+
+			<p>Copy this code to your website:</p><code id="embed-code"></code></form>
+		<p><a href="javascript:;" class="btn btn-medium btn-primary">Close</a></p></div>
+</div>
+
+<div id="container">
+	<header>
+		<h1>{{texts.tagline}}</h1>
+		<h4>{{texts.subline}}</h4>
+
+		<div id="language">
+			<small><a href="http://apps.opendatacity.de/prism/de/">german</a> | <b>english</b></small>
+		</div>
+
+		<div id="social">
+			<div id="social-twitter" class="social">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://apps.opendatacity.de/prism/" data-text="Where is this going?" data-via="opendatacity" data-lang="de">Tweet</a>
+				<script>!function (d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (!d.getElementById(id)) {
+						js = d.createElement(s);
+						js.id = id;
+						js.src = "//platform.twitter.com/widgets.js";
+						fjs.parentNode.insertBefore(js, fjs);
+					}
+				}(document, "script", "twitter-wjs");</script>
+			</div>
+			<div id="social-google" class="social">
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+					window.___gcfg = {lang: 'de'};
+					(function () {
+						var po = document.createElement('script');
+						po.type = 'text/javascript';
+						po.async = true;
+						po.src = 'https://apis.google.com/js/plusone.js';
+						var s = document.getElementsByTagName('script')[0];
+						s.parentNode.insertBefore(po, s);
+					})();
+				</script>
+			</div>
+			<div id="social-facebook" class="social">
+				<div class="fb-like" data-href="http://apps.opendatacity.de/prism/en" data-send="false" data-layout="button_count" data-width="180" data-show-faces="true"></div>
+			</div>
+			<div class="social embed"><a href="javascript:;" class="btn btn-primary embed-button">Embed</a></div>
+
+		</div>
+
+	</header>
+	<div id="main" role="main">
+		<div id="text-intro">
+			<p class="lead">
+				Our visualization shows examples of how Internet packets,
+				originated from Germany, wander around the Internet cables while we use some of the most popular
+				Internet services. Each country your data packets visit offers an opportunity for snooping. Please choose a service:
+			</p>
+		</div>
+		<div id="app">
+			{{> partial_prism}}
+		</div>
+		<div id="text-sub">
+			<p>
+				The cable routes on the map are taken from <a href="http://cablemap.info">cablemap.info</a>. We determined how
+				packets are traveling through the Internet by using the program <a href="http://en.wikipedia.org/wiki/Traceroute">Traceroute</a>.
+				It is using one of the basic Internet Protocols (IP): Asking every IP-router
+				(think of it as a switchboard), which is forwarding a packet, about its identity.
+				Not every router is answering to Traceroute and which cable is used, we don't know.
+				Depending if it's day or night, the packets can take pretty different routes.
+			</p>
+
+			<p>
+				In the end, the connections we are displaying in this app (in slow motion) are the most telling
+				examples we have choosen from many different real requests to the particular
+				service.
+			</p>
+
+			<p>
+				More information on Prism and Tempora can be found here:
+				<a href="http://www.guardian.co.uk/world/the-nsa-files">Guardian</a>,
+				<a href="https://www.eff.org/search/site/prism">EFF</a>.
+
+			</p>
+
+			<p>
+				This App can be embedded
+				(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) and is
+				also available <a href="/prism/de">in German</a>.
+			</p>
+		</div>
+	</div>
+	<footer>
+		<p id="creator" class="pull-right">
+			An informative service by <a href="//opendatacity.de/">OpenDataCity</a>
+		</p>
+
+		<p id="license" class="pull-right">
+			<a href="//creativecommons.org/licenses/by/3.0/">CC BY</a>
+		</p>
+
+		<p id="attribution-and-privacy" class="pull-left">
+			This site utilizes
+			<a href="//twitter.github.com/bootstrap/">Bootstrap</a>,
+			<a href="//fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
+			<a href="//mapbox.github.io/tilemill/">Tilemill</a>,
+			<a href="//leafletjs.com/">Leaflet</a> and
+			<a href="//raphaeljs.com/">Raphaël</a>.<br/>
+			The visits on this webpage are evaluated with Google Analytics.
+		</p>
+	</footer>
+</div>
+{{> analytics}}
+</body>

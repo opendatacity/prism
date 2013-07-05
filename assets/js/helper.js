@@ -1,11 +1,8 @@
 
-
-
 $(document).ready(function(){
 
 	/* embed overlay code */
-	
-	$('body').append($($embed_overlay));
+	var $embed_overlay = $('#embed-overlay');
 
 	$('.embed-button').click(function(evt){
 		console.log('hey');

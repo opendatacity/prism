@@ -1,0 +1,42 @@
+{
+	"de": {
+		"title": "Prism, Tempora & Co",
+		"tagline": "Wo führt das hin?",
+		"subline": "Beispiele von Anfragen aus Deutschland an Internetdienste",
+		"helpline": "--- Bitte oben einen Dienst auswählen ---",
+		"route_btn_hint": "Anzeige der Route zu",
+		"requestline": "Anfrage an",
+		"resultline": "Möglicher Zugriff dieser Geheimdienste:",
+		"cable": "Seekabel",
+		"countries": {
+			"DE": {"name": "Deutschland"},
+			"FR": {"name": "Frankreich"},
+			"NL": {"name": "Niederlande"},
+			"CH": {"name": "Schweiz"},
+			"UK": {"name": "Großbritanien"},
+			"US": {"name": "Vereinigte Staaten"},
+			"ES": {"name": "Spanien"},
+			"LU": {"name": "Luxemburg"}
+		}
+	},
+	"en": {
+			"title": "Prism, Tempora & Co",
+			"tagline": "Where is this going?",
+			"subline": "Examples for Internet requests from Germany",
+			"helpline": "--- Please choose a service above ---",
+			"route_btn_hint": "Display a route to",
+			"requestline": "Request to",
+			"resultline": "Probably accessed by these security services:",
+			"cable": "submarine cable",
+			"countries": {
+				"DE": {"name": "Germany"},
+				"FR": {"name": "France"},
+				"NL": {"name": "Netherlands"},
+				"CH": {"name": "Swiss"},
+				"UK": {"name": "United Kingdom"},
+				"US": {"name": "United States"},
+				"ES": {"name": "Spain"},
+				"LU": {"name": "Luxembourg"}
+			}
+	}
+}

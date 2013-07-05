@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OpenDataCity - Traceprism</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- style sheets -->
+	<link rel="stylesheet" type="text/css" href="/prism/assets/css/leaflet.css"/>
+	<link rel="stylesheet" type="text/css" href="/prism/assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/prism/assets/css/font-awesome.min.css "/>
+	<link rel="stylesheet" type="text/css" href="/prism/assets/css/trace.css "/>
+	<!-- scripts -->
+	<script type="text/javascript" src="/prism/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/leaflet.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/raphael.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/rlayer-mod.min.js"></script>
+	<script type="text/javascript" src="/prism/assets/js/trace.js"></script>
+</head>
+<body>
+
+<div class="content">
+	<div class="container">
+		<lead>
+			<h1>OpenDataCity - Traceprism</h1>
+		</lead>
+		<div class="row">
+			<div class="span4">
+				<form id="adress" class="form-search">
+					<fieldset>
+						<input id="input" type="text" value=""/>
+						<input id="btn" class="btn" type="submit" value="Go"/>
+						<i id="spinner" class='icon-spinner icon-spin icon-large' hidden="true"></i>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span9">
+				<p id="map"></p>
+			</div>
+			<div class="span3">
+				<p id="ips"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span12">
+				<p id="cache"></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
