@@ -77,6 +77,29 @@ if (config.allowtrace) {
 	var cachepath = path.resolve(__dirname, './data/cache')
 	var trace_cache = [];
 
+	var done = {};
+	var files = fs.readdirSync(cachepath);
+	files.forEach(function (filename) {
+		if ((filename != 'geoip.json') && (path.extname(filename) == '.json')) {
+			var data = JSON.parse(fs.readFileSync(cachepath + '/' + filename));
+			if (data.url)
+				data = [data];
+			if (data.length)
+				data.forEach(function (route) {
+					var ids = route.id + route.hops.map(function (hop) {
+						return hop.ip + ',';
+					});
+					if (data.waypoints) {
+						delete data.waypoints;
+					}
+					if (!done[ids]) {
+						done[ids] = true;
+						trace_cache.push(route);
+					}
+				});
+		}
+	});
+
 	if (config.debug) {
 		require(path.resolve(__dirname, './bin/builder')).build(); //debug only!!
 	}

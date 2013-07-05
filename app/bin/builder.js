@@ -25,15 +25,16 @@ function build() {
 	var routes_data = {},
 		geo_data = {};
 
+	var all_routes = require(path.resolve(__dirname, '../data/routes.json'));
 	sites.forEach(function (route) {
-		var filename = datapath + '/' + route.url + '.json';
-		console.log('Read ' + filename);
+		var site_routes = all_routes.filter(function (r) {
+			return r.url = route.url;
+		});
 		var routes = [];
-		if (fs.existsSync(filename)) {
-			var data = JSON.parse(fs.readFileSync(filename, 'utf8'));
-			if (!data.push)
-				data = [data];
-			data.forEach(function (trace) {
+		if (site_routes.length == 0) {
+			console.log('ALERT: ROUTE WITHOUT DATA. I\'M SHOUTING! CAN YOU HEAR ME?');
+		} else {
+			site_routes.forEach(function (trace) {
 				var route = [];
 				var min_lat = 180,
 					max_lat = 0,
