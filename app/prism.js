@@ -49,8 +49,16 @@ app.get(config.prefix + '/frame.de.html', function (req, res) {
 	res.send(sites.frame_de);
 });
 
+app.get(config.prefix + '/frame.de', function (req, res) {
+	res.send(sites.frame_de);
+});
+
 app.get(config.prefix + '/frame.en.html', function (req, res) {
 	res.send(sites.frame_en);
+});
+
+app.get(config.prefix + '/frame.en', function (req, res) {
+	res.send(sites.frame_de);
 });
 
 app.get(config.prefix + '/de', function (req, res) {
@@ -65,6 +73,8 @@ if (config.allowtrace) {
 	var tracegeoip = require(path.resolve(__dirname, './lib/tracegeoip'));
 	var cachepath = path.resolve(__dirname, './data/cache')
 	var trace_cache = [];
+
+	require(path.resolve(__dirname, './bin/builder')).build(); //debug only!!
 
 	app.get(config.prefix + '/trace', function (req, res) {
 		res.send(sites.trace_de);
