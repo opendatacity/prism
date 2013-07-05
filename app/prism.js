@@ -24,6 +24,11 @@ if ('development' == app.get('env')) {
 }
 app.use(config.prefix + '/assets', express.static(__dirname + './../assets'));
 
+if (!fs.existsSync(path.resolve(__dirname, "dist/index.de.html"))) {
+	//call the builder if static html does not exists
+	require(path.resolve(__dirname, './bin/builder')).build();
+}
+
 var sites = {
 	index_de: fs.readFileSync(path.resolve(__dirname, "dist/index.de.html")).toString(),
 	index_en: fs.readFileSync(path.resolve(__dirname, "dist/index.en.html")).toString(),
@@ -58,7 +63,7 @@ app.get(config.prefix + '/en', function (req, res) {
 
 if (config.allowtrace) {
 	var tracegeoip = require(path.resolve(__dirname, './lib/tracegeoip'));
-   	var cachepath = path.resolve(__dirname, './data/cache')
+	var cachepath = path.resolve(__dirname, './data/cache')
 	var trace_cache = [];
 
 	app.get(config.prefix + '/trace', function (req, res) {
