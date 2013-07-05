@@ -339,7 +339,7 @@ footer .social a i {
 	border-radius: 3px;
 	color: lime;
 	padding: 4px;
-	overflow: hidden;
+	overflow-y: auto;
 	background: rgba(0, 0, 0, 0.5);
 }
 
