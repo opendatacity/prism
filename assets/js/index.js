@@ -39,19 +39,27 @@ RaPath.prototype = {
 		return hop.ip + ' - ' + (hop.geo.city ? hop.geo.city + ', ' : '') + hop.geo.country;
 	},
 	clear: function () {
+		this.setButton(false);
 		if (this.layers.length > 0)
 			this.layers.forEach(function (l) {
 				map.removeLayer(l);
 			});
 		info.clear();
 	},
+	setButton: function (active) {
+		if (this.geotrace)
+		if (active)
+			$('#btn_' + this.geotrace.id).addClass('btn_active', active)
+		else
+			$('#btn_' + this.geotrace.id).removeClass('btn_active', active);
+	},
 	start: function (geotrace) {
 		$('.leaflet-top').fadeIn();
-//		$('#' + id).addClass('active');
 		this.clear();
 		this.geotrace = geotrace;
 		this.layers = [];
 		info.append(texts.requestline + ' ' + geotrace.name);
+		this.setButton(true);
 		this.processStep(0);
 	},
 	processStep: function (index) {
@@ -65,6 +73,7 @@ RaPath.prototype = {
 		}, 200);
 	},
 	displayEnd: function () {
+		this.setButton(false);
 		//$('.leaflet-control-zoom').show();
 		var result = [];
 		for (key in this.geotrace.agencies) {
@@ -117,7 +126,7 @@ function init() {
 		this._div.attr('id', 'hops');
 		this._div.empty();
 		if (isFrame) {
-			this.append('<span class="upper">'+texts.tagline+'</span>');
+			this.append('<span class="upper">' + texts.tagline + '</span>');
 			this.append(texts.subline);
 			this.append(texts.helpline);
 		}

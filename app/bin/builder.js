@@ -26,7 +26,7 @@ function build() {
 		geo_data = {};
 
 	sites.forEach(function (route) {
-		var filename = datapath + '/' + route.id + '.json';
+		var filename = datapath + '/' + route.url + '.json';
 		console.log('Read ' + filename);
 		var routes = [];
 		if (fs.existsSync(filename)) {
@@ -57,7 +57,7 @@ function build() {
 				routes.push({trace: route, north: max_lat, west: min_lng, south: min_lat, east: max_lng });
 			});
 		}
-		routes_data[route.id] = {name: route.name, routes: routes};
+		routes_data[route.id] = {name: route.name, url: route.url, routes: routes};
 	});
 
 	function storeHTML(filename, data) {

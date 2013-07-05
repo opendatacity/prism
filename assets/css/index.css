@@ -69,58 +69,6 @@ header .embed {
 	margin-top: 20px;
 }
 
-header #switch-language {
-
-	display: block;
-	position: absolute;
-	right: 20px;
-	top: 0px;
-	margin: 0px;
-	padding: 0px;
-
-}
-
-header #switch-language ul {
-
-	display: block;
-	position: relative;
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-
-}
-
-header #switch-language ul li {
-
-	display: block;
-	float: left;
-	position: relative;
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-
-}
-
-header #switch-language ul li a {
-
-	display: block;
-	position: relative;
-	margin: 0px;
-	padding: 5px 10px;
-
-}
-
-header #switch-language ul li.active a,
-header #switch-language ul li.active a:active,
-header #switch-language ul li.active a:hover,
-header #switch-language ul li.active a:focus {
-
-	color: #000;
-	text-decoration: none;
-	cursor: default;
-
-}
-
 #main {
 
 	display: block;
@@ -428,8 +376,9 @@ footer .social a i {
 	top: 1px;
 }
 
-.active {
-	background-color: #e9f8a5;
+.btn_active {
+	border: 1px solid #dcdcdc !important;
+
 }
 
 /*animation*/

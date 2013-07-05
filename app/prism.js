@@ -16,13 +16,16 @@ app.set('hostname', process.env.APP_HOSTNAME || config.hostname);
 app.use(express.favicon());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-if ('development' == app.get('env')) {
+
+if (config.debug) {
 	app.use(express.errorHandler());
 	app.use(express.logger('dev'));
-} else {
-	app.use(express.logger());
 }
 app.use(config.prefix + '/assets', express.static(__dirname + './../assets'));
+
+if (!config.debug) {
+	app.use(express.logger());
+}
 
 if (!fs.existsSync(path.resolve(__dirname, "dist/index.de.html"))) {
 	//call the builder if static html does not exists
@@ -74,7 +77,9 @@ if (config.allowtrace) {
 	var cachepath = path.resolve(__dirname, './data/cache')
 	var trace_cache = [];
 
-	require(path.resolve(__dirname, './bin/builder')).build(); //debug only!!
+	if (config.debug) {
+		require(path.resolve(__dirname, './bin/builder')).build(); //debug only!!
+	}
 
 	app.get(config.prefix + '/trace', function (req, res) {
 		res.send(sites.trace_de);
