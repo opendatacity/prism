@@ -52,7 +52,6 @@ RaPath.prototype = {
 		this.geotrace = geotrace;
 		this.layers = [];
 		info.append(texts.requestline + ' ' + geotrace.name);
-		map.panTo(this.geotrace.hops[0].p);
 		this.processStep(0);
 	},
 	processStep: function (index) {
