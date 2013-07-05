@@ -93,7 +93,7 @@ function init() {
 	map = new L.Map("map", { center: DEFAULT_POINT, zoom: 3});
 
 	map.addLayer(
-		new L.TileLayer("http://map.opendatacloud.de/trace/{z}/{x}/{y}.png ",
+		new L.TileLayer("http://sloppy.odcm.opendatacloud.de/trace/{z}/{x}/{y}.png ",
 			{attribution: 'OpenDataCity, CC-BY',
 				minZoom: 2,
 				maxZoom: 5}
