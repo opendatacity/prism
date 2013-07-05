@@ -28,7 +28,7 @@ function build() {
 	var all_routes = require(path.resolve(__dirname, '../data/routes.json'));
 	sites.forEach(function (route) {
 		var site_routes = all_routes.filter(function (r) {
-			return r.url = route.url;
+			return r.url == route.url;
 		});
 		var routes = [];
 		if (site_routes.length == 0) {
