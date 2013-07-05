@@ -111,7 +111,6 @@ $(document).ready(function () {
 
 	function stepPath(path, index) {
 		if (index >= path.length) {
-			console.log('over');
 			return;
 		}
 		addPathPart(path[index - 1], path[index], function () {

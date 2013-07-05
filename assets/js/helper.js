@@ -5,7 +5,6 @@ $(document).ready(function(){
 	var $embed_overlay = $('#embed-overlay');
 
 	$('.embed-button').click(function(evt){
-		console.log('hey');
 		if ($('#embed-overlay:visible').length === 0) {
 			$('#embed-overlay').fadeIn('fast');
 		}
