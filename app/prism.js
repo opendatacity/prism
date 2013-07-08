@@ -21,7 +21,7 @@ if (config.debug) {
 	app.use(express.errorHandler());
 	app.use(express.logger('dev'));
 }
-app.use(config.prefix + '/assets', express.static(__dirname + './../assets'));
+app.use('/prism/assets', express.static(__dirname + './../assets'));
 
 if (!config.debug) {
 	app.use(express.logger());
@@ -29,48 +29,51 @@ if (!config.debug) {
 
 if (!fs.existsSync(path.resolve(__dirname, "dist/index.de.html"))) {
 	//call the builder if static html does not exists
-	require(path.resolve(__dirname, './bin/builder')).build();
+	require(path.resolve(__dirname, './lib/builder')).build();
 }
+
 
 var sites = {
 	index_de: fs.readFileSync(path.resolve(__dirname, "dist/index.de.html")).toString(),
 	index_en: fs.readFileSync(path.resolve(__dirname, "dist/index.en.html")).toString(),
+//	index_fr: fs.readFileSync(path.resolve(__dirname, "dist/index.fr.html")).toString(),
 	frame_de: fs.readFileSync(path.resolve(__dirname, "dist/frame.de.html")).toString(),
 	frame_en: fs.readFileSync(path.resolve(__dirname, "dist/frame.en.html")).toString(),
-	trace_de: fs.readFileSync(path.resolve(__dirname, "dist/trace.de.html")).toString()
+//	frame_fr: fs.readFileSync(path.resolve(__dirname, "dist/frame.fr.html")).toString(),
+	trace: fs.readFileSync(path.resolve(__dirname, "dist/trace.html")).toString()
 };
 
-app.get(config.prefix, function (req, res) {
+app.get('/prism', function (req, res) {
 	res.send(sites.index_de);
 });
 
-app.get(config.prefix + '/', function (req, res) {
+app.get('/prism/', function (req, res) {
 	res.send(sites.index_de);
 });
 
-app.get(config.prefix + '/frame.de.html', function (req, res) {
+app.get('/prism/frame.de.html', function (req, res) {
 	res.send(sites.frame_de);
 });
 
-app.get(config.prefix + '/frame.de', function (req, res) {
-	res.send(sites.frame_de);
-});
-
-app.get(config.prefix + '/frame.en.html', function (req, res) {
+app.get('/prism/frame.en.html', function (req, res) {
 	res.send(sites.frame_en);
 });
 
-app.get(config.prefix + '/frame.en', function (req, res) {
-	res.send(sites.frame_de);
-});
-
-app.get(config.prefix + '/de', function (req, res) {
+app.get('/prism/de', function (req, res) {
 	res.send(sites.index_de);
 });
 
-app.get(config.prefix + '/en', function (req, res) {
+app.get('/prism/en', function (req, res) {
 	res.send(sites.index_en);
 });
+
+//app.get('/prism/frame.fr.html', function (req, res) {
+//	res.send(sites.frame_en);
+//});
+//
+//app.get('/prism/fr', function (req, res) {
+//	res.send(sites.index_en);
+//});
 
 if (config.allowtrace) {
 	var tracegeoip = require(path.resolve(__dirname, './lib/tracegeoip'));
@@ -101,18 +104,18 @@ if (config.allowtrace) {
 	});
 
 	if (config.debug) {
-		require(path.resolve(__dirname, './bin/builder')).build(); //debug only!!
+		require(path.resolve(__dirname, './lib/builder')).build(); //debug only!!
 	}
 
-	app.get(config.prefix + '/trace', function (req, res) {
-		res.send(sites.trace_de);
+	app.get('/prism/trace', function (req, res) {
+		res.send(sites.trace);
 	});
 
-	app.get(config.prefix + '/trace/cache', function (req, res) {
+	app.get('/prism/trace/cache', function (req, res) {
 		res.json(trace_cache);
 	});
 
-	app.get(config.prefix + '/trace/it/:cmd', function (req, res) {
+	app.get('/prism/trace/it/:cmd', function (req, res) {
 		var u = url.parse(req.params.cmd);
 		var scan;
 		if (u.host) {

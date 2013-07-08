@@ -2,4 +2,4 @@
 var
 	path = require('path');
 
-require(path.resolve(__dirname, './builder')).build();
+require(path.resolve(__dirname, '../lib/builder')).build();

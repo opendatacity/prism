@@ -1,0 +1,34 @@
+<div id="text-intro">
+	<p>Unsere Visualisierung zeigt exemplarisch, wie bei der Nutzung populärer Dienste von Deutschland aus,
+		Datenpakete durch die Leitungen wandern - und auf diesem Weg von verschiedenen Geheimdiensten abgegriffen werden könnten. Bitte einen Dienst wählen: </p>
+</div>
+<div id="app">
+	{{> partial_prism}}
+</div>
+<div id="text-sub">
+	<p>
+		Hintergrund: Die Kabel-Routen auf der Karte stammen von <a href="http://www.cablemap.info">www.cablemap.info</a>. Wie die Pakete durch das Netz reisen, haben wir mit dem Programm
+		<a href="http://de.wikipedia.org/wiki/Traceroute">Traceroute</a> ermittelt. Es nutzt eines der grundlegenden Internet Protokolle (IP). Es fragt ab, welche IP-Router (Schaltstellen)
+		die Anfrage, die in einem oder mehreren „Paketen“ erfolgt, weitergeleitet wird. Doch nicht jeder Router antwortet auf „Traceroute“ und welches Unterseekabel exakt genutzt wird,
+		ist uns auch nicht bekannt. Auch können sich je nach Tageszeit oder Wochentag die Routen der Pakete drastisch ändern.
+	</p>
+
+	<p>
+		So sind die in der Anwendung gezeigten Verbindungen typische Beispiele (in Zeitlupe), die wir aus vielen verschiedenen tatsächlichen Anfragen an die jeweiligen Dienste ausgewählt haben.
+		Hinweis: Die Standorte, die anhand der IP-Adresse der Router ermittelt werden, stimmen nicht unbedingt mit dem tatsächlichem pyhsischen Standort überein, sondern ggf. nur mit dem Firmensitz dessen Betreibers.
+	</p>
+
+	<p>
+		Mehr Informationen zu Prism & Tempora hier:
+		<a href="http://www.spiegel.de/thema/nsa_programm_prism/">Spiegel Online</a>,
+		<a href="http://www.sueddeutsche.de/thema/Internet-%C3%9Cberwachung">Süddeutsche</a>,
+		<a href="https://netzpolitik.org/?s=prism&searchsubmit=Suchen">Netzpolitik</a>.
+	</p>
+
+	<p>
+		Diese App kann eingebettet werden
+		(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) und liegt
+		auch in <a href="/prism/en">Englisch</a> <!-- und <a href="/prism/fr">Französisch</a> -->vor.
+	</p>
+</div>
+

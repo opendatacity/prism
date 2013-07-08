@@ -5,6 +5,7 @@ var info;
 
 function RaPath() {
 	this.layers = [];
+	this.timeout = null;
 }
 
 RaPath.prototype = {
@@ -39,6 +40,9 @@ RaPath.prototype = {
 		return hop.ip + ' - ' + (hop.geo.city ? hop.geo.city + ', ' : '') + hop.geo.country;
 	},
 	clear: function () {
+		if (this.timeout)
+			window.clearTimeout(this.timeout);
+		this.timeout = null;
 		this.setButton(false);
 		if (this.layers.length > 0)
 			this.layers.forEach(function (l) {
@@ -48,10 +52,10 @@ RaPath.prototype = {
 	},
 	setButton: function (active) {
 		if (this.geotrace)
-		if (active)
-			$('#btn_' + this.geotrace.id).addClass('btn_active', active)
-		else
-			$('#btn_' + this.geotrace.id).removeClass('btn_active', active);
+			if (active)
+				$('#btn_' + this.geotrace.id).addClass('btn_active', active);
+			else
+				$('#btn_' + this.geotrace.id).removeClass('btn_active', active);
 	},
 	start: function (geotrace) {
 		$('.leaflet-top').fadeIn();
@@ -68,12 +72,12 @@ RaPath.prototype = {
 		this.addPulse(hop);
 		map.panTo(hop.p);
 		var caller = this;
-		window.setTimeout(function () {
+		this.timeout = window.setTimeout(function () {
 			caller.stepPath(index + 1);
 		}, 200);
 	},
 	displayEnd: function () {
-		this.setButton(false);
+		//this.setButton(false); just let it active
 		//$('.leaflet-control-zoom').show();
 		var result = [];
 		for (key in this.geotrace.agencies) {
@@ -86,7 +90,7 @@ RaPath.prototype = {
 	stepPath: function (index) {
 		var caller = this;
 		if (index >= this.geotrace.hops.length) {
-			window.setTimeout(function () {
+			this.timeout = window.setTimeout(function () {
 				caller.displayEnd();
 			}, 2000);
 			return;
@@ -97,7 +101,25 @@ RaPath.prototype = {
 	}
 };
 
+function getQueryParams(qs) {
+	qs = qs.split("+").join(" ");
+
+	var params = {}, tokens,
+		re = /[?&]?([^=]+)=([^&]*)/g;
+
+	while (tokens = re.exec(qs)) {
+		params[decodeURIComponent(tokens[1])]
+			= decodeURIComponent(tokens[2]);
+	}
+
+	return params;
+}
+
 function init() {
+	var query = getQueryParams(document.location.search);
+	if ((query.src) && (query.src == 'ch')) {
+		selectSrc('ch');
+	}
 
 	map = new L.Map("map", { center: DEFAULT_POINT, zoom: 3});
 
@@ -171,7 +193,7 @@ function showRoute(id) {
 					ip: ip,
 					geo: geo
 				};
-				var agency = agencies[geo.country_code];
+				var agency = agencies[geo.cc];
 				if (agency)
 					route_agencies[agency.name] = agency;
 				geotrace.hops.push(hop);
@@ -185,6 +207,19 @@ function showRoute(id) {
 			rapath.start(geotrace);
 		}
 	}
+}
+
+function selectSrc(cc) {
+	$('.btn_src_de').removeAttr('active');
+	$('.btn_src_ch').removeAttr('active');
+	$('.buttons_de').removeAttr('active');
+	$('.buttons_ch').removeAttr('active');
+	$('.src_desc_de').removeAttr('active');
+	$('.src_desc_ch').removeAttr('active');
+
+	$('.btn_src_' + cc).attr('active', 'true');
+	$('.buttons_' + cc).attr('active', 'true');
+	$('.src_desc_'+cc).attr('active', 'true');
 }
 
 $(document).ready(function () {

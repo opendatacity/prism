@@ -1,0 +1,33 @@
+<div id="text-intro">
+	<p>Cette infographie montre comment nos données circulent dans les tuyaux lorsque nous nous connectons à des services web classiques. C’est lors de leur passage dans les réseaux que les services secrets peuvent intercepter nos données. Cliquez sur un de ces services web : </p>
+</div>
+<div id="app">
+	{{> partial_prism}}
+</div>
+<div id="text-sub">
+	<p>
+		Contexte : Les réseaux de câblage affichés sur la carte proviennent du site <a href="http://www.cablemap.info">www.cablemap.info</a>.
+		Nous avons essayé de retracer la trajectoire des données sur le réseau avec le programme <a href="http://fr.wikipedia.org/wiki/Traceroute">Traceroute</a>.
+		Il utilise l'un des protocoles Internet les plus basiques (IP). Il recherche quels routeurs IP (relais)
+		ont transmis la demande ayant donné lieu à l'émission d'un ou de plusieurs "paquets". Toutefois,
+		tous les routeurs ne répondent pas sur "Traceroute" et nous ne savons pas non plus, quel câble sous-marin
+		exactement est utilisé. Les routes des paquets peuvent sensiblement varier en fonction dumoment de la
+		journée ou du jour de semaine concerné.
+	</p>
+
+	<p>
+		C'est pourquoi nous montrons dans cette infogaphie des exemples-types au ralenti. Ils sont construits à partir de nombreuses demandes réelles effectuées auprès des différents services web.
+		Remaque : les lieux définis à partir des adresses IP des routeurs ne correspondent pas nécessairement avec le lieu physique réel. Ils corresondent davantage au siège social du gérant.	</p>
+
+	<p>
+		Plus d'informations concernant Prism & Tempora ici:
+		<a href="http://www.lemonde.fr/societe/article/2013/07/04/revelations-sur-le-big-brother-francais_3441973_3224.html?xtmc=prism&xtcr=15/">Le Monde</a>,
+		<a href="http://www.liberation.fr/monde/2013/06/29/prism-l-union-europeenne-a-fait-partie-des-cible-de-la-nsa_914722">Libération</a>.
+	</p>
+
+	<p>
+		Cette application peut être intégrée (<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) et est
+		disponible en versions <a href="/prism/de">allemand</a> et <a href="/prism/en">anglaise</a>.
+	</p>
+</div>
+

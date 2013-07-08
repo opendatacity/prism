@@ -1,23 +1,22 @@
-
-$(document).ready(function(){
+$(document).ready(function () {
 
 	/* embed overlay code */
 	var $embed_overlay = $('#embed-overlay');
 
-	$('.embed-button').click(function(evt){
+	$('.embed-button').click(function (evt) {
 		if ($('#embed-overlay:visible').length === 0) {
 			$('#embed-overlay').fadeIn('fast');
 		}
 	});
 
 	var $clickIn = false;
-	$('#embed-overlay').click(function(evt){
+	$('#embed-overlay').click(function (evt) {
 		if (!$clickIn) {
 			$('#embed-overlay').fadeOut('fast');
 		}
 		$clickIn = false;
 	});
-	$('#embed-form').click(function(evt){
+	$('#embed-form').click(function (evt) {
 		$clickIn = true;
 	});
 
@@ -25,29 +24,44 @@ $(document).ready(function(){
 	if ($('#embed-form').length) {
 		var $f = $('#embed-form');
 		var $url = 'http://apps.opendatacity.de/prism/';
-		var embedCode = function(){
-			var $size = $('input:radio[name=size]:checked',$f).val();
-			var $lang = $('input:radio[name=lang]:checked',$f).val();
+		var embedCode = function () {
+			var $size = $('input:radio[name=size]:checked', $f).val();
+			var $lang = $('input:radio[name=lang]:checked', $f).val();
+			var $src = $('input:radio[name=src]:checked', $f).val();
 			$lang = ($lang === "") ? "de" : $lang;
 			$size = ($size === "") ? "large" : $size;
+			$src = ($src === "") ? "de" : $src;
 
 			if ($lang == "de") {
-				var file   = 'frame.de.html';
+				var file = 'frame.de.html';
 			} else {
-				var file   = 'frame.en.html';
+				var file = 'frame.en.html';
 			}
 
-			$('#embed-size',$f).show();
-					switch ($size) {
-						case 'large':  var $wh = 'width="520" height="490"'; break;
-						case 'medium': var $wh = 'width="480" height="490"'; break;
-						case 'small':  var $wh = 'width="360" height="576"'; break;
-					}
-					var $code = '<iframe src="'+$url+file+'" '+$wh+' scrolling="no" frameborder="0" style="margin:0"></iframe>';
+			if ($src == "ch") {
+				file += "?scr=ch"
+			}
+
+			$('#embed-size', $f).show();
+			switch ($size) {
+				case 'giant':
+					var $wh = 'width="975" height="585"';
+					break;
+				case 'large':
+					var $wh = 'width="520" height="490"';
+					break;
+				case 'medium':
+					var $wh = 'width="480" height="490"';
+					break;
+				case 'small':
+					var $wh = 'width="360" height="576"';
+					break;
+			}
+			var $code = '<iframe src="' + $url + file + '" ' + $wh + ' scrolling="no" frameborder="0" style="margin:0"></iframe>';
 			$('#embed-code', $f).text($code);
 		};
 		embedCode();
-		$(":input", $f).change(function(){
+		$(":input", $f).change(function () {
 			embedCode();
 		});
 	}

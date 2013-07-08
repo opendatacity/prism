@@ -1,42 +1,120 @@
 {
 	"de": {
+		"lang_code": "de",
 		"title": "Prism, Tempora & Co",
-		"tagline": "Wo führt das hin?",
-		"subline": "Beispiele von Anfragen aus Deutschland an Internetdienste",
-		"helpline": "--- Bitte oben einen Dienst auswählen ---",
-		"route_btn_hint": "Anzeige der Route zu",
-		"requestline": "Anfrage an",
-		"resultline": "Möglicher Zugriff dieser Geheimdienste:",
-		"cable": "Seekabel",
-		"countries": {
-			"DE": {"name": "Deutschland"},
-			"FR": {"name": "Frankreich"},
-			"NL": {"name": "Niederlande"},
-			"CH": {"name": "Schweiz"},
-			"UK": {"name": "Großbritanien"},
-			"US": {"name": "Vereinigte Staaten"},
-			"ES": {"name": "Spanien"},
-			"LU": {"name": "Luxemburg"}
+		"js": {
+			"tagline": "Wo führt das hin?",
+			"subline": "Beispiele von Anfragen aus Deutschland an Internetdienste",
+			"helpline": "--- Bitte oben einen Dienst auswählen ---",
+			"route_btn_hint": "Anzeige der Route zu",
+			"requestline": "Anfrage an",
+			"resultline": "Möglicher Zugriff dieser Geheimdienste:",
+			"cable": "Seekabel"
+		},
+		"frame": {
+			"subline": "Anfragenbeispiele aus",
+			"subline_de": "Dtl.",
+			"subline_ch": "CH",
+			"by": "Von",
+			"moreinfo": "Mehr Info"
+		},
+		"embedhelper": {
+			"embed": "Einbetten",
+			"share": "Weitergeben",
+			"small": "Klein",
+			"medium": "Mittel",
+			"large": "Groß",
+			"size": "Größe",
+			"lang": "Sprache",
+			"help": "Kopiere diesen Code in Deine Webseite",
+			"close": "Schließen",
+			"code": "Code",
+			"src": "Anfragen anzeigen aus",
+			"germany": "Deutschland",
+			"suisse": "Schweiz"
+		},
+		"footer": {
+			"brought_you_by": "Ein Informationsangebot von",
+			"contact": "Impressum",
+			"using": "Diese Seite verwendet",
+			"tracking": "Die Besuche der Website werden mit Google Analytics ausgewertet."
 		}
 	},
 	"en": {
-			"title": "Prism, Tempora & Co",
+		"lang_code": "en",
+		"title": "Prism, Tempora & Co",
+		"js": {
 			"tagline": "Where is this going?",
 			"subline": "Examples for Internet requests from Germany",
 			"helpline": "--- Please choose a service above ---",
 			"route_btn_hint": "Display a route to",
 			"requestline": "Request to",
 			"resultline": "Probably accessed by these security services:",
-			"cable": "submarine cable",
-			"countries": {
-				"DE": {"name": "Germany"},
-				"FR": {"name": "France"},
-				"NL": {"name": "Netherlands"},
-				"CH": {"name": "Swiss"},
-				"UK": {"name": "United Kingdom"},
-				"US": {"name": "United States"},
-				"ES": {"name": "Spain"},
-				"LU": {"name": "Luxembourg"}
-			}
+			"cable": "submarine cable"
+		},
+		"frame": {
+			"subline": "Requests examples from",
+			"subline_de": "GER",
+			"subline_ch": "CH",
+			"by": "By",
+			"moreinfo": "More info"
+		},
+		"embedhelper": {
+			"embed": "Embed",
+			"share": "Share",
+			"small": "Small",
+			"medium": "Medium",
+			"large": "Large",
+			"size": "Size",
+			"lang": "Language",
+			"help": "Copy this code to your website",
+			"close": "Close",
+			"code": "Code",
+			"src": "Requests showing from",
+			"germany": "Germany",
+			"suisse": "Suisse"
+		},
+		"footer": {
+			"brought_you_by": "An informative service by",
+			"contact": "Contact",
+			"tracking": "The visits on this webpage are evaluated with Google Analytics."
+		}
+	},
+	"fr": {
+		"lang_code": "fr",
+		"title": "Prism, Tempora & Co",
+		"js": {
+			"tagline": "Où est-ce que ça mène?",
+			"subline": "Exemples de demandes envoyées aux opérateurs web",
+			"helpline": "--- Please choose a service above ---",
+			"route_btn_hint": "Display a route to",
+			"requestline": "Request to",
+			"resultline": "Probably accessed by these security services:",
+			"cable": "submarine cable"
+		},
+		"frame": {
+			"subline": "Requests examples from",
+			"subline_de": "GER",
+			"subline_ch": "CH",
+			"by": "By",
+			"moreinfo": "More info"
+		},
+		"embedhelper": {
+			"embed": "Embed",
+			"share": "Share",
+			"small": "Small",
+			"medium": "Medium",
+			"large": "Large",
+			"size": "Size",
+			"lang": "Language",
+			"help": "Copy this code to your website",
+			"close": "Close",
+			"code": "Code"
+		},
+		"footer": {
+			"brought_you_by": "An informative service by",
+			"contact": "Contact",
+			"tracking": "The visits on this webpage are evaluated with Google Analytics."
+		}
 	}
 }

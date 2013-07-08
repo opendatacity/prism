@@ -1,14 +1,29 @@
 [
-{"id": "amazonde", "url": "amazon.de","name": "Amazon", "img": "logo_amazon_de_tr.png"},
-{"id": "bildde","url": "bild.de",  "name": "Bild", "img": "logo_bild_tr.png"},
-{"id": "dropboxcom", "url": "dropbox.com","name": "Dropbox", "img": "logo_drop_tr.png"},
-{"id": "facebookde", "url": "facebook.de","name": "Facebook", "img": "logo_facebook_tr.png"},
-{"id": "gmailcom","url": "gmail.com", "name": "Gmail", "img": "logo_gmail_tr.png"},
-{"id": "piratebaysx","url": "piratebay.sx", "name": "PirateBay", "img": "logo_pirate_tr.png"},
-{"id": "googlede","url": "google.de", "name": "Google", "img": "logo_google_tr.png"},
-{"id": "skypecom","url": "skype.com", "name": "Skype", "img": "logo_skype_tr.png"},
-{"id": "whatsappcom","url": "whatsapp.com", "name": "Whatsapp", "img": "logo_whatsapp_tr.png"},
-{"id": "twittercom", "url": "twitter.com","name": "Twitter", "img": "logo_twitter_tr.png"},
-{"id": "youporncom","url": "youporn.com", "name": "YouPorn", "img": "logo_youp_tr.png"},
-{"id": "youtubecom","url": "youtube.com", "name": "Youtube", "img": "logo_youtube_tr.png"}
+{"id": "amazonde", "url": "amazon.de","name": "Amazon", "img": "logo_amazon_de_tr.png", "src":"DE"},
+{"id": "bildde","url": "bild.de",  "name": "Bild", "img": "logo_bild_tr.png", "src":"DE"},
+{"id": "dropboxcom", "url": "dropbox.com","name": "Dropbox", "img": "logo_drop_tr.png", "src":"DE"},
+{"id": "facebookde", "url": "facebook.de","name": "Facebook", "img": "logo_facebook_tr.png", "src":"DE"},
+{"id": "gmailcom","url": "gmail.com", "name": "Gmail", "img": "logo_gmail_tr.png", "src":"DE"},
+{"id": "piratebaysx","url": "piratebay.sx", "name": "PirateBay", "img": "logo_pirate_tr.png", "src":"DE"},
+{"id": "googlede","url": "google.de", "name": "Google", "img": "logo_google_tr.png", "src":"DE"},
+{"id": "skypecom","url": "skype.com", "name": "Skype", "img": "logo_skype_tr.png", "src":"DE"},
+{"id": "whatsappcom","url": "whatsapp.com", "name": "Whatsapp", "img": "logo_whatsapp_tr.png", "src":"DE"},
+{"id": "twittercom", "url": "twitter.com","name": "Twitter", "img": "logo_twitter_tr.png", "src":"DE"},
+{"id": "youporncom","url": "youporn.com", "name": "YouPorn", "img": "logo_youp_tr.png", "src":"DE"},
+{"id": "youtubecom","url": "youtube.com", "name": "Youtube", "img": "logo_youtube_tr.png", "src":"DE"},
+
+	{"id": "amazonch", "url": "amazon.ch","name": "Amazon", "img": "logo_amazon_de_tr.png", "src":"CH"},
+	{"id": "nzzch","url": "nzz.ch",  "name": "Neue Zürcher Zeitung", "img": "logo_nzz_tr.png", "src":"CH"},
+	{"id": "dropboxch", "url": "dropbox.com","name": "Dropbox", "img": "logo_drop_tr.png", "src":"CH"},
+	{"id": "facebookdech", "url": "facebook.de","name": "Facebook", "img": "logo_facebook_tr.png", "src":"CH"},
+	{"id": "gmailcomch","url": "gmail.com", "name": "Gmail", "img": "logo_gmail_tr.png", "src":"CH"},
+	{"id": "piratebaysxch","url": "piratebay.sx", "name": "PirateBay", "img": "logo_pirate_tr.png", "src":"CH"},
+	{"id": "googlech","url": "google.ch", "name": "Google", "img": "logo_google_tr.png", "src":"CH"},
+	{"id": "skypecomch","url": "skype.com", "name": "Skype", "img": "logo_skype_tr.png", "src":"CH"},
+	{"id": "whatsappcomch","url": "whatsapp.com", "name": "Whatsapp", "img": "logo_whatsapp_tr.png", "src":"CH"},
+	{"id": "twittercomch", "url": "twitter.com","name": "Twitter", "img": "logo_twitter_tr.png", "src":"CH"},
+	{"id": "youporncomch","url": "youporn.com", "name": "YouPorn", "img": "logo_youp_tr.png", "src":"CH"},
+	{"id": "youtubecomch","url": "youtube.com", "name": "Youtube", "img": "logo_youtube_tr.png", "src":"CH"}
+
+
 ]

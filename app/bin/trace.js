@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var path = require('path');
-var destpath = path.resolve(__dirname, '../data');
+var destpath = path.resolve(__dirname, '../data/cache');
 var tracegeoip = require(path.resolve(__dirname, '../lib/tracegeoip'));
 
 var url = process.argv[2];
@@ -8,14 +8,15 @@ var urls = [];
 if (url) {
 	urls = [url];
 } else {
-	var sites = require(path.resolve(__dirname, './sites.json'));
+	var sites = require(path.resolve(__dirname, '../base/sites.json'));
 	urls = sites.map(function (route) {
-		return route.id;
+		return route.url;
 	});
 }
+
 var count = parseInt(process.argv[3]);
 if (!count)
-	count = 10;
+	count = 1;
 var trace = new tracegeoip.TraceGeoIP(destpath);
 
 function traceUrl(url, count, cb) {

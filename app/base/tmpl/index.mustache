@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{> partial_head}}
+	<script type="text/javascript" src="/prism/assets/js/helper.js"></script>
+</head>
+<body>
+
+<!-- facebook share hell -->
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s);
+	js.id = id;
+	js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+{{#texts.embedhelper}}
+	<!-- embed helper overlay -->
+	<div id="embed-overlay">
+		<div id="embed-content"><h1>{{share}}</h1>
+
+			<form name="embed-form" id="embed-form" action="javascript:;"
+				  method="post">
+				<fieldset id="embed-size" class="form-inline">
+					<legend>{{size}}</legend>
+					<label class="radio"><input type="radio" name="size" value="large" checked="checked"> {{large}} (520&times;490)</label>
+					<label class="radio"><input type="radio" name="size" value="medium"> {{medium}} (480&times;490)</label>
+					<label class="radio"><input type="radio" name="size" value="small"> {{small}} (360&times;576)</label>
+				</fieldset>
+				<fieldset class="form-inline">
+					<legend>{{src}}</legend>
+					<label class="radio"><input type="radio" name="src" value="de" checked="checked"> {{germany}}</label>
+					<label class="radio"><input type="radio" name="src" value="ch"> {{suisse}}</label>
+					<!--<label class="radio"><input type="radio" name="lang" value="fr"> Français</label>-->
+				</fieldset>
+				<fieldset class="form-inline">
+					<legend>{{lang}}</legend>
+						<label class="radio"><input type="radio" name="lang" value="de" checked="checked"> Deutsch</label>
+						<label class="radio"><input type="radio" name="lang" value="en"> English</label>
+						<!--<label class="radio"><input type="radio" name="lang" value="fr"> Français</label>-->
+				</fieldset>
+				<h2>{{code}}</h2>
+
+				<p>{{help}}:</p><code id="embed-code"></code></form>
+			<p><a href="javascript:;" class="btn btn-medium btn-primary">{{close}}</a></p></div>
+	</div>
+{{/texts.embedhelper}}
+<div id="container">
+	<header>
+		<h1>{{texts.js.tagline}}</h1>
+		<h4>{{texts.js.subline}}</h4>
+
+		<div id="language" style="text-align: right;">
+			<small>
+			{{#langlinks}}
+ 				{{#lang_code}}
+					<a href="/prism/{{lang_code}}">{{name}}</a>
+				{{/lang_code}}
+				{{^lang_code}}
+					<b>{{name}}</b>
+				{{/lang_code}}
+				| <br/>
+			{{/langlinks}}
+			</small>
+		</div>
+		<!--<a href="/prism/de">deutsch</a> | <a href="/prism/en">english</a> |  <a href="/prism/fr">française</a>-->
+
+		<div id="social">
+			<div id="social-twitter" class="social">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{main_url}}" data-text="{{texts.js.tagline}}" data-via="opendatacity" data-lang="{{texts.lang_code}}">Tweet</a>
+				<script>!function (d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (!d.getElementById(id)) {
+						js = d.createElement(s);
+						js.id = id;
+						js.src = "//platform.twitter.com/widgets.js";
+						fjs.parentNode.insertBefore(js, fjs);
+					}
+				}(document, "script", "twitter-wjs");</script>
+			</div>
+			<div id="social-google" class="social">
+				<div class="g-plusone"></div>
+				<script type="text/javascript">
+					window.___gcfg = {lang: '{{texts.lang_code}}'};
+					(function () {
+						var po = document.createElement('script');
+						po.type = 'text/javascript';
+						po.async = true;
+						po.src = 'https://apis.google.com/js/plusone.js';
+						var s = document.getElementsByTagName('script')[0];
+						s.parentNode.insertBefore(po, s);
+					})();
+				</script>
+			</div>
+			<div id="social-facebook" class="social">
+				<div class="fb-like" data-href="http://apps.opendatacity.de/prism/" data-send="false" data-layout="button_count" data-width="180" data-show-faces="true"></div>
+			</div>
+			<div class="social embed"><a href="javascript:;" class="btn btn-primary embed-button">{{texts.embedhelper.embed}}</a></div>
+		</div>
+	</header>
+	<div id="main" role="main">
+		{{> partial_main}}
+	</div>
+	<footer>
+		{{#texts.footer}}
+		<p id="creator" class="pull-right">
+			{{brought_you_by}} <a href="//opendatacity.de/">OpenDataCity</a>
+		</p>
+		<p id="license" class="pull-right">
+			<a href="//creativecommons.org/licenses/by/3.0/">CC BY</a><br/>
+		</p>
+		<p id="attribution-and-privacy" class="pull-left">
+			<a href="http://www.opendatacity.de/kontakt/">{{contact}}</a><br/>
+			{{using}}
+			<a href="//twitter.github.com/bootstrap/">Bootstrap</a>,
+			<a href="//fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
+			<a href="//mapbox.github.io/tilemill/">Tilemill</a>,
+			<a href="//leafletjs.com/">Leaflet</a> &amp;
+			<a href="//raphaeljs.com/">Raphaël</a>.<br/>
+			{{tracking}}
+		</p>
+		{{/texts.footer}}
+	</footer>
+</div>
+{{> partial_analytics}}
+</body>

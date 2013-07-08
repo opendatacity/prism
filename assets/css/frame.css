@@ -52,3 +52,14 @@
 		width: 92% !important;
 	}
 }
+
+.btn-route {
+	min-height: 34px !important;
+	max-height: 34px !important;
+	line-height: 34px !important;
+}
+
+.src-choose {
+	text-align: center;
+	margin-bottom: 2px !important;
+}

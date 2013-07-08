@@ -52,12 +52,12 @@ CaPath.prototype = {
 
 	drawCanvasLine: function (context, src_hop, dest_hop, offset) {
 		var src = new L.LatLng(
-			src_hop.geoip.location.coords.latitude,
-			src_hop.geoip.location.coords.longitude
+			src_hop.geo.lat,
+			src_hop.geo.lng
 		);
 		var dest = new L.LatLng(
-			dest_hop.geoip.location.coords.latitude,
-			dest_hop.geoip.location.coords.longitude
+			dest_hop.geo.lat,
+			dest_hop.geo.lng
 		);
 		var p_src = this.map.project(src);
 		var p_dest = this.map.project(dest);
@@ -83,8 +83,8 @@ CaPath.prototype = {
 
 	drawCanvasPoint: function (context, hop, start) {
 		var point = new L.LatLng(
-			hop.geoip.location.coords.latitude,
-			hop.geoip.location.coords.longitude
+			hop.geo.lat,
+			hop.geo.lng
 		);
 		// circle radius
 		var radius = 2;
@@ -167,8 +167,8 @@ function addPulse(latlng) {
 
 function getHopsText(hop) {
 	return '<small>' + hop.ip + ' ' +
-		hop.geoip.location.address.city + ', ' +
-		hop.geoip.location.address.country +
+		hop.geo.city + ', ' +
+		hop.geo.country +
 		'</small>' + '<br/>';
 }
 
@@ -183,8 +183,8 @@ function startPath(pathdata) {
 	pathdata.hops.forEach(function (hop) {
 		var p =
 			new L.LatLng(
-				hop.geoip.location.coords.latitude,
-				hop.geoip.location.coords.longitude
+				hop.geo.lat,
+				hop.geo.lng
 			);
 		path.push(p);
 	});

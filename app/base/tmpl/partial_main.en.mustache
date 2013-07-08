@@ -1,0 +1,38 @@
+<div id="text-intro">
+	<p>
+		Our visualization shows examples of how Internet packets, originated from Germany,
+		wander around the Internet cables while we use some of the most popular Internet services.
+		Each country your data packets visit offers an opportunity for snooping.
+		Please choose a service:
+	</p>
+</div>
+<div id="app">
+	{{> partial_prism}}
+</div>
+<div id="text-sub">
+	<p>
+		The cable routes on the map are taken from <a href="http://cablemap.info">cablemap.info</a>. We determined how
+		packets are traveling through the Internet by using the program <a href="http://en.wikipedia.org/wiki/Traceroute">Traceroute</a>.
+		It is using one of the basic Internet Protocols (IP): Asking every IP-router
+		(think of it as a switchboard), which is forwarding a packet, about its identity.
+		Not every router is answering to Traceroute and which cable is used, we don't know.
+		Depending if it's day or night, the packets can take pretty different routes.
+	</p>
+	<p>
+		In the end, the connections we are displaying in this app (in slow motion) are the most telling
+		examples we have choosen from many different real requests to the particular
+		service. Note: The locations that were determined on the basis of the router IP-Addresses do not necessarily
+		correspond with the actual physical locations but rather – where applicable - with the headquarters of their operators.
+	</p>
+	<p>
+		More information on Prism & Tempora can be found here:
+		<a href="http://www.guardian.co.uk/world/the-nsa-files">Guardian</a>,
+		<a href="https://www.eff.org/search/site/prism">EFF</a>.
+
+	</p>
+	<p>
+		This App can be embedded
+		(<a href="//creativecommons.org/licenses/by/3.0/" class="license-cc-by">CC BY</a>) and is
+		also available in <a href="/prism/de">German</a><!-- and <a href="/prism/fr">French</a>-->.
+	</p>
+</div>

@@ -6,11 +6,15 @@
 	var isFrame = {{isFrame}};
 </script>
 
-<div id="fix">
-	<div id="buttons">
-		{{#routes}}
+<p class="src-choose">Beispielanfragen aus <a class="btn_src btn_src_de" active="true" href="javascript:;" onclick="selectSrc('de');">Deutschland</a> / der <a href="javascript:;" class="btn_src btn_src_ch" onclick="selectSrc('ch');">Schweiz</a></p>
+<div class="buttons buttons_de" active="true">
+	{{#routes_de}}
 		<div class="btn-route"><a href="javascript:;" onclick="showRoute('{{id}}')" title="{{name}}"><img id="btn_{{id}}" alt="{{name}}" src="/prism/assets/img/logos/{{img}}"/></a></div>
-		{{/routes}}
-	</div>
-	<div id="map" class="border"></div>
+	{{/routes_de}}
 </div>
+<div class="buttons buttons_ch">
+	{{#routes_ch}}
+		<div class="btn-route"><a href="javascript:;" onclick="showRoute('{{id}}')" title="{{name}}"><img id="btn_{{id}}" alt="{{name}}" src="/prism/assets/img/logos/{{img}}"/></a></div>
+	{{/routes_ch}}
+</div>
+<div id="map" class="border"></div>
