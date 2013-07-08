@@ -39,7 +39,7 @@ $(document).ready(function () {
 			}
 
 			if ($src == "ch") {
-				file += "?scr=ch"
+				file += "?src=ch"
 			}
 
 			$('#embed-size', $f).show();

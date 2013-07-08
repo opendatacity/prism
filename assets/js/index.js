@@ -101,24 +101,25 @@ RaPath.prototype = {
 	}
 };
 
-function getQueryParams(qs) {
-	qs = qs.split("+").join(" ");
-
-	var params = {}, tokens,
-		re = /[?&]?([^=]+)=([^&]*)/g;
-
-	while (tokens = re.exec(qs)) {
-		params[decodeURIComponent(tokens[1])]
-			= decodeURIComponent(tokens[2]);
+function getUrlVars() { // Read a page's GET URL variables and return them as an associative array.
+	var vars = {},
+		hash;
+	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	for (var i = 0; i < hashes.length; i++) {
+		hash = hashes[i].split('=');
+		vars[hash[0]] = hash[1];
 	}
-
-	return params;
+	return vars;
 }
 
 function init() {
-	var query = getQueryParams(document.location.search);
-	if ((query.src) && (query.src == 'ch')) {
-		selectSrc('ch');
+	try {
+		var query = getUrlVars();
+		if ((query.src) && (query.src == 'ch'))
+			selectSrc('ch');
+	}
+	catch (e) {
+		//nop;
 	}
 
 	map = new L.Map("map", { center: DEFAULT_POINT, zoom: 3});
@@ -210,16 +211,7 @@ function showRoute(id) {
 }
 
 function selectSrc(cc) {
-	$('.btn_src_de').removeAttr('active');
-	$('.btn_src_ch').removeAttr('active');
-	$('.buttons_de').removeAttr('active');
-	$('.buttons_ch').removeAttr('active');
-	$('.src_desc_de').removeAttr('active');
-	$('.src_desc_ch').removeAttr('active');
-
-	$('.btn_src_' + cc).attr('active', 'true');
-	$('.buttons_' + cc).attr('active', 'true');
-	$('.src_desc_'+cc).attr('active', 'true');
+	$('body').attr('requests', cc);
 }
 
 $(document).ready(function () {

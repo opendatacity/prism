@@ -4,7 +4,12 @@
 		"title": "Prism, Tempora & Co",
 		"js": {
 			"tagline": "Wo führt das hin?",
-			"subline": "Beispiele von Anfragen aus Deutschland an Internetdienste",
+			"subline": "Beispiele von Anfragen an Internetdienste",
+			"subline_short":"Anfragen aus",
+			"subline_from":"aus",
+			"subline_de": "Deutschland",
+			"subline_ch_nominativ":"der",
+			"subline_ch": "Schweiz",
 			"helpline": "--- Bitte oben einen Dienst auswählen ---",
 			"route_btn_hint": "Anzeige der Route zu",
 			"requestline": "Anfrage an",
@@ -12,9 +17,6 @@
 			"cable": "Seekabel"
 		},
 		"frame": {
-			"subline": "Anfragenbeispiele aus",
-			"subline_de": "Dtl.",
-			"subline_ch": "CH",
 			"by": "Von",
 			"moreinfo": "Mehr Info"
 		},
@@ -24,6 +26,7 @@
 			"small": "Klein",
 			"medium": "Mittel",
 			"large": "Groß",
+			"giant": "Sehr groß",
 			"size": "Größe",
 			"lang": "Sprache",
 			"help": "Kopiere diesen Code in Deine Webseite",
@@ -45,7 +48,12 @@
 		"title": "Prism, Tempora & Co",
 		"js": {
 			"tagline": "Where is this going?",
-			"subline": "Examples for Internet requests from Germany",
+			"subline": "Examples for Internet requests",
+			"subline_short":"Requests from",
+			"subline_from":"from",
+			"subline_de": "Germany",
+			"subline_ch_nominativ":"",
+			"subline_ch": "Suisse",
 			"helpline": "--- Please choose a service above ---",
 			"route_btn_hint": "Display a route to",
 			"requestline": "Request to",
@@ -53,9 +61,6 @@
 			"cable": "submarine cable"
 		},
 		"frame": {
-			"subline": "Requests examples from",
-			"subline_de": "GER",
-			"subline_ch": "CH",
 			"by": "By",
 			"moreinfo": "More info"
 		},
@@ -65,6 +70,7 @@
 			"small": "Small",
 			"medium": "Medium",
 			"large": "Large",
+			"giant": "Very large",
 			"size": "Size",
 			"lang": "Language",
 			"help": "Copy this code to your website",
@@ -73,43 +79,6 @@
 			"src": "Requests showing from",
 			"germany": "Germany",
 			"suisse": "Suisse"
-		},
-		"footer": {
-			"brought_you_by": "An informative service by",
-			"contact": "Contact",
-			"tracking": "The visits on this webpage are evaluated with Google Analytics."
-		}
-	},
-	"fr": {
-		"lang_code": "fr",
-		"title": "Prism, Tempora & Co",
-		"js": {
-			"tagline": "Où est-ce que ça mène?",
-			"subline": "Exemples de demandes envoyées aux opérateurs web",
-			"helpline": "--- Please choose a service above ---",
-			"route_btn_hint": "Display a route to",
-			"requestline": "Request to",
-			"resultline": "Probably accessed by these security services:",
-			"cable": "submarine cable"
-		},
-		"frame": {
-			"subline": "Requests examples from",
-			"subline_de": "GER",
-			"subline_ch": "CH",
-			"by": "By",
-			"moreinfo": "More info"
-		},
-		"embedhelper": {
-			"embed": "Embed",
-			"share": "Share",
-			"small": "Small",
-			"medium": "Medium",
-			"large": "Large",
-			"size": "Size",
-			"lang": "Language",
-			"help": "Copy this code to your website",
-			"close": "Close",
-			"code": "Code"
 		},
 		"footer": {
 			"brought_you_by": "An informative service by",

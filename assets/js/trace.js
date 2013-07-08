@@ -119,7 +119,6 @@ CaPath.prototype = {
 	},
 
 	drawRoute: function (context, offset) {
-		console.log('dereaw');
 		this.drawCanvasPoint(context, this.route.hops[0], offset);
 		for (var j = 1; j < this.route.hops.length; j++) {
 			var hop = this.route.hops[j];

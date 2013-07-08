@@ -4,8 +4,6 @@ body {
 	padding: 0px;
 	background: #fff;
 	font-family: "Helvetica", "Arial", sans-serif;
-	height: 100%;
-
 }
 
 #container {
@@ -39,6 +37,17 @@ header h4 {
 
 }
 
+header #language {
+	display: block;
+	position: absolute;
+	right: 20px;
+	text-align: left !important;
+	top: 10px;
+	margin: 0px;
+	padding: 0px;
+	width: 100px;
+}
+
 header #social {
 	display: block;
 	position: absolute;
@@ -55,18 +64,7 @@ header #social {
 }
 
 header .social {
-	text-align: right;
 	margin-bottom: 3px;
-}
-
-header #language {
-	display: block;
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	margin: 0px;
-	padding: 0px;
-	width: 100px;
 }
 
 header .embed {
@@ -82,7 +80,6 @@ header .embed {
 	max-width: 920px;
 
 }
-
 
 #app {
 
@@ -314,30 +311,31 @@ footer .social a i {
 	display: none;
 }
 
-/*buttons*/
+.src-choose {
+	font-size: 18px;
+}
 
-.src_desc {
+.buttons_de, .buttons_ch {
+	text-align: center;
+}
+
+.src_de, .src_ch, .buttons_de, .buttons_ch {
 	display: none;
 }
-.src_desc[active="true"] {
+
+body[requests="de"] .src_de,
+body[requests="ch"] .src_ch {
 	display: inline-block;
 }
-
-.buttons {
-	text-align: center;
-	display: none;
-}
-
-.buttons[active="true"] {
-	text-align: center;
+body[requests="de"] .buttons_de,
+body[requests="ch"] .buttons_ch {
 	display: block;
 }
 
-.btn_src {
-}
-
-.btn_src[active="true"] {
-    color: #000;
+body[requests="de"] .btn_src_de,
+body[requests="ch"] .btn_src_ch {
+	margin-right: 0;
+	color: #000;
 	font-weight: bold;
 	text-decoration: none;
 	cursor: default;
@@ -546,8 +544,8 @@ circle:hover {
 	width: 20px;
 	margin-left: 3px;
 	margin-right: 3px;
-	float:left;
-	top:7px;
+	float: left;
+	top: 7px;
 }
 
 .legend a {
@@ -557,7 +555,7 @@ circle:hover {
 .legend {
 	font-size: 12px;
 	background-color: #fff;
-	padding:4px;
+	padding: 4px;
 }
 
 #embed-overlay {
@@ -568,7 +566,7 @@ circle:hover {
 	right: 0px;
 	top: 0px;
 	bottom: 0px;
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0, 0, 0, 0.7);
 	overflow-y: auto;
 	z-index: 1000;
 
@@ -583,7 +581,7 @@ circle:hover {
 	margin: 20px auto;
 	padding: 20px;
 	border-radius: 6px;
-	box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.9);
+	box-shadow: 0px 0px 50px -15px rgba(0, 0, 0, 0.9);
 
 }
 
@@ -599,7 +597,6 @@ circle:hover {
 	line-height: 30px;
 
 }
-
 
 #embed-content label+label {
 

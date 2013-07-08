@@ -4,7 +4,7 @@
 	{{> partial_head}}
 	<script type="text/javascript" src="/prism/assets/js/helper.js"></script>
 </head>
-<body>
+<body requests="de">
 
 <!-- facebook share hell -->
 <div id="fb-root"></div>
@@ -26,6 +26,7 @@
 				  method="post">
 				<fieldset id="embed-size" class="form-inline">
 					<legend>{{size}}</legend>
+					<label class="radio"><input type="radio" name="size" value="giant"> {{giant}} (975&times;585)</label>
 					<label class="radio"><input type="radio" name="size" value="large" checked="checked"> {{large}} (520&times;490)</label>
 					<label class="radio"><input type="radio" name="size" value="medium"> {{medium}} (480&times;490)</label>
 					<label class="radio"><input type="radio" name="size" value="small"> {{small}} (360&times;576)</label>
@@ -51,18 +52,18 @@
 <div id="container">
 	<header>
 		<h1>{{texts.js.tagline}}</h1>
-		<h4>{{texts.js.subline}}</h4>
+		<h4>{{texts.js.subline}} {{texts.js.subline_from}} <span class="src_de">{{texts.js.subline_de}}</span><span class="src_ch"> {{texts.js.subline_ch_nominativ}} {{texts.js.subline_ch}}</span></h4>
 
 		<div id="language" style="text-align: right;">
 			<small>
 			{{#langlinks}}
- 				{{#lang_code}}
+				| {{#lang_code}}
 					<a href="/prism/{{lang_code}}">{{name}}</a>
 				{{/lang_code}}
 				{{^lang_code}}
 					<b>{{name}}</b>
 				{{/lang_code}}
-				| <br/>
+				<br/>
 			{{/langlinks}}
 			</small>
 		</div>
