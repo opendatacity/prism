@@ -117,6 +117,10 @@ function init() {
 		var query = getUrlVars();
 		if ((query.src) && (query.src == 'ch'))
 			selectSrc('ch');
+		if ((query.colors) && (query.colors == "nzz")) {
+			$('body').attr('colors', "nzz");
+		}
+
 	}
 	catch (e) {
 		//nop;
