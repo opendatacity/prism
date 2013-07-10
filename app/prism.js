@@ -36,10 +36,10 @@ if (!fs.existsSync(path.resolve(__dirname, "dist/index.de.html"))) {
 var sites = {
 	index_de: fs.readFileSync(path.resolve(__dirname, "dist/index.de.html")).toString(),
 	index_en: fs.readFileSync(path.resolve(__dirname, "dist/index.en.html")).toString(),
-//	index_fr: fs.readFileSync(path.resolve(__dirname, "dist/index.fr.html")).toString(),
+	index_fr: fs.readFileSync(path.resolve(__dirname, "dist/index.fr.html")).toString(),
 	frame_de: fs.readFileSync(path.resolve(__dirname, "dist/frame.de.html")).toString(),
 	frame_en: fs.readFileSync(path.resolve(__dirname, "dist/frame.en.html")).toString(),
-//	frame_fr: fs.readFileSync(path.resolve(__dirname, "dist/frame.fr.html")).toString(),
+	frame_fr: fs.readFileSync(path.resolve(__dirname, "dist/frame.fr.html")).toString(),
 	trace: fs.readFileSync(path.resolve(__dirname, "dist/trace.html")).toString()
 };
 
@@ -67,13 +67,13 @@ app.get('/prism/en', function (req, res) {
 	res.send(sites.index_en);
 });
 
-//app.get('/prism/frame.fr.html', function (req, res) {
-//	res.send(sites.frame_en);
-//});
-//
-//app.get('/prism/fr', function (req, res) {
-//	res.send(sites.index_en);
-//});
+app.get('/prism/frame.fr.html', function (req, res) {
+	res.send(sites.frame_fr);
+});
+
+app.get('/prism/fr', function (req, res) {
+	res.send(sites.index_fr);
+});
 
 if (config.allowtrace) {
 	var tracegeoip = require(path.resolve(__dirname, './lib/tracegeoip'));

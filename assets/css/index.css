@@ -315,23 +315,26 @@ footer .social a i {
 	font-size: 18px;
 }
 
-.buttons_de, .buttons_ch {
+.buttons_de, .buttons_ch, .buttons_fr {
 	text-align: center;
 }
 
-.src_de, .src_ch, .buttons_de, .buttons_ch {
+.src_de, .src_ch,.src_fr, .buttons_de, .buttons_ch, .buttons_fr {
 	display: none;
 }
 
+body[requests="fr"] .src_fr,
 body[requests="de"] .src_de,
 body[requests="ch"] .src_ch {
 	display: inline-block;
 }
+body[requests="fr"] .buttons_fr,
 body[requests="de"] .buttons_de,
 body[requests="ch"] .buttons_ch {
 	display: block;
 }
 
+body[requests="fr"] .btn_src_fr,
 body[requests="de"] .btn_src_de,
 body[requests="ch"] .btn_src_ch {
 	margin-right: 0;

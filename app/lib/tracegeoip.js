@@ -64,21 +64,21 @@ TraceGeoIP.prototype = {
 		}
 
 		console.log('ha?');
-		if (fs.existsSync(this.datapath + '/trace-ch.txt')) {
+		if (fs.existsSync(this.datapath + '/trace-fr.txt')) {
 			console.log('ho!');
-			var list = fs.readFileSync(this.datapath + '/trace-ch.txt', 'utf8').toString().split("\n");
+			var list = fs.readFileSync(this.datapath + '/trace-fr.txt', 'utf8').toString().split("\n");
 			console.log('me!');
 			var routes = [];
 			var hops = [];
 			var name = "";
 			for (var i = 0; i < list.length; i++) {
 				var line = list[i];
-				if (line.indexOf('Routenverfolgung zu') >= 0) {
+				if (line.indexOf('traceroute to') >= 0) {
 					if (hops.length > 0) {
-						routes.push({url: name.split(" ")[2], src: "CH", hops: hops});
+						routes.push({url: name, src: "FR", hops: hops});
 					}
 					hops = [];
-					name = line;
+					name = line.split(" ")[2];
 				} else {
 					var check = parseHop(line);
 					if (check) {
@@ -92,7 +92,7 @@ TraceGeoIP.prototype = {
 //			console.log(JSON.stringify(parseHop(line)));
 			}
 			if (hops.length > 0) {
-				routes.push({url: name.split(" ")[2], src: "CH", hops: hops});
+				routes.push({url: name, src: "FR", hops: hops});
 			}
 
 			var caller = this;
@@ -105,13 +105,17 @@ TraceGeoIP.prototype = {
 						routes[index].hops = routes[index].hops.filter(function (hop) {
 							return hop.geo;
 						});
-						console.log(JSON.stringify(routes[index])+',');
 						meh(index + 1, cb);
 					})
 				}
 			}
 
 			meh(0, function () {
+
+				routes.forEach(function(route){
+					console.log(JSON.stringify(route)+',');
+				})  ;
+
 				console.log('done');
 				caller.save_geocache();
 			});
@@ -201,7 +205,6 @@ TraceGeoIP.prototype = {
 	},
 
 	trace: function (url, cb) {
-		return;
 		console.log('tracing ' + url);
 		var caller = this;
 		traceroute.trace(url, function (err, hops) {
@@ -302,6 +305,7 @@ var custom_country_codes = {
 	"CH": "Swiss",
 	"CA": "Canada",
 	"EU": "Europe",
+	"DK": "Denmark",
 	"GB": "United Kingdom",
 	"UK": "United Kingdom",
 	"US": "United States",

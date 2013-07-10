@@ -115,8 +115,13 @@ function getUrlVars() { // Read a page's GET URL variables and return them as an
 function init() {
 	try {
 		var query = getUrlVars();
-		if ((query.src) && (query.src == 'ch'))
-			selectSrc('ch');
+		if (query.src) {
+			if (query.src == 'ch')
+				selectSrc('ch');
+			else
+			if (query.src == 'fr')
+				selectSrc('fr');
+		}
 		if ((query.colors) && (query.colors == "nzz")) {
 			$('body').attr('colors', "nzz");
 		}

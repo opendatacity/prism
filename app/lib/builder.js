@@ -80,11 +80,10 @@ function build() {
 		if (lang_code != 'en')
 			obj.lang_code = 'en';
 		result.push(obj);
-
-//		var obj = {name: 'française'};
-//		if (lang_code != 'fr')
-//			obj.lang_code = 'fr';
-//		result.push(obj);
+		var obj = {name: 'française'};
+		if (lang_code != 'fr')
+			obj.lang_code = 'fr';
+		result.push(obj);
 		return result;
 	}
 
@@ -92,6 +91,7 @@ function build() {
 		return    {
 			routes_de: sites.filter(function(route){return route.src=="DE"}),
 			routes_ch: sites.filter(function(route){return route.src=="CH"}),
+			routes_fr: sites.filter(function(route){return route.src=="FR"}),
 			isFrame: isFrame,
 			texts: lang_texts,
 			langlinks: getLangLinks(lang_texts.lang_code),
@@ -104,7 +104,7 @@ function build() {
 		};
 	}
 
-	var langs = ['en', 'de'];
+	var langs = ['en', 'de', 'fr'];
 	langs.forEach(function (lang) {
 		tmpl.partials.partial_main = tmpl.main[lang]; //language dependent partial
 		var index = mustache.render(

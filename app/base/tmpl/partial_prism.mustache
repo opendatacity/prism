@@ -8,7 +8,9 @@
 
 <p class="src-choose">{{texts.js.subline_short}}
 	<a class="btn_src_de" href="javascript:;" onclick="selectSrc('de');">{{texts.js.subline_de}}</a> / {{texts.js.subline_ch_nominativ}}
-	<a href="javascript:;" class="btn_src_ch" onclick="selectSrc('ch');">{{texts.js.subline_ch}}</a></p>
+	<a href="javascript:;" class="btn_src_ch" onclick="selectSrc('ch');">{{texts.js.subline_ch}}</a> /
+	<a href="javascript:;" class="btn_src_fr" onclick="selectSrc('fr');">{{texts.js.subline_fr}}</a>
+</p>
 <div class="buttons_de">
 	{{#routes_de}}
 		<div class="btn-route"><a href="javascript:;" onclick="showRoute('{{id}}')" title="{{name}}"><img id="btn_{{id}}" alt="{{name}}" src="/prism/assets/img/logos/{{img}}"/></a></div>
@@ -18,5 +20,10 @@
 	{{#routes_ch}}
 		<div class="btn-route"><a href="javascript:;" onclick="showRoute('{{id}}')" title="{{name}}"><img id="btn_{{id}}" alt="{{name}}" src="/prism/assets/img/logos/{{img}}"/></a></div>
 	{{/routes_ch}}
+</div>
+<div class="buttons_fr">
+	{{#routes_fr}}
+		<div class="btn-route"><a href="javascript:;" onclick="showRoute('{{id}}')" title="{{name}}"><img id="btn_{{id}}" alt="{{name}}" src="/prism/assets/img/logos/{{img}}"/></a></div>
+	{{/routes_fr}}
 </div>
 <div id="map" class="border"></div>

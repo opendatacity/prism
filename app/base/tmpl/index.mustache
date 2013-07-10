@@ -33,15 +33,15 @@
 				</fieldset>
 				<fieldset class="form-inline">
 					<legend>{{src}}</legend>
-					<label class="radio"><input type="radio" name="src" value="de" checked="checked"> {{germany}}</label>
-					<label class="radio"><input type="radio" name="src" value="ch"> {{suisse}}</label>
-					<!--<label class="radio"><input type="radio" name="lang" value="fr"> Français</label>-->
+					<label class="radio"><input type="radio" name="src" value="de" checked="checked"> {{texts.js.subline_de}}</label>
+					<label class="radio"><input type="radio" name="src" value="ch"> {{texts.js.subline_ch}}</label>
+					<label class="radio"><input type="radio" name="src" value="fr"> {{texts.js.subline_fr}}</label>
 				</fieldset>
 				<fieldset class="form-inline">
 					<legend>{{lang}}</legend>
 						<label class="radio"><input type="radio" name="lang" value="de" checked="checked"> Deutsch</label>
 						<label class="radio"><input type="radio" name="lang" value="en"> English</label>
-						<!--<label class="radio"><input type="radio" name="lang" value="fr"> Français</label>-->
+						<label class="radio"><input type="radio" name="lang" value="fr"> Français</label>
 				</fieldset>
 				<h2>{{code}}</h2>
 
@@ -52,7 +52,11 @@
 <div id="container">
 	<header>
 		<h1>{{texts.js.tagline}}</h1>
-		<h4>{{texts.js.subline}} {{texts.js.subline_from}} <span class="src_de">{{texts.js.subline_de}}</span><span class="src_ch"> {{texts.js.subline_ch_nominativ}} {{texts.js.subline_ch}}</span></h4>
+		<h4>{{texts.js.subline}} {{texts.js.subline_from}}
+			<span class="src_de">{{texts.js.subline_de}}</span>
+			<span class="src_ch"> {{texts.js.subline_ch_nominativ}} {{texts.js.subline_ch}}</span>
+			<span class="src_fr">{{texts.js.subline_fr}}</span>
+		</h4>
 
 		<div id="language" style="text-align: right;">
 			<small>
@@ -67,8 +71,6 @@
 			{{/langlinks}}
 			</small>
 		</div>
-		<!--<a href="/prism/de">deutsch</a> | <a href="/prism/en">english</a> |  <a href="/prism/fr">française</a>-->
-
 		<div id="social">
 			<div id="social-twitter" class="social">
 				<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{main_url}}" data-text="{{texts.js.tagline}}" data-via="opendatacity" data-lang="{{texts.lang_code}}">Tweet</a>

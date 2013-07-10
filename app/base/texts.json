@@ -5,10 +5,11 @@
 		"js": {
 			"tagline": "Wo führt das hin?",
 			"subline": "Beispiele von Anfragen an Internetdienste",
-			"subline_short":"Anfragen aus",
-			"subline_from":"aus",
+			"subline_short": "Anfragen aus",
+			"subline_from": "aus",
 			"subline_de": "Deutschland",
-			"subline_ch_nominativ":"der",
+			"subline_fr": "Frankreich",
+			"subline_ch_nominativ": "der",
 			"subline_ch": "Schweiz",
 			"helpline": "--- Bitte oben einen Dienst auswählen ---",
 			"route_btn_hint": "Anzeige der Route zu",
@@ -32,9 +33,7 @@
 			"help": "Kopiere diesen Code in Deine Webseite",
 			"close": "Schließen",
 			"code": "Code",
-			"src": "Anfragen anzeigen aus",
-			"germany": "Deutschland",
-			"suisse": "Schweiz"
+			"src": "Anfragen anzeigen aus"
 		},
 		"footer": {
 			"brought_you_by": "Ein Informationsangebot von",
@@ -49,10 +48,11 @@
 		"js": {
 			"tagline": "Where is this going?",
 			"subline": "Examples for Internet requests",
-			"subline_short":"Requests from",
-			"subline_from":"from",
+			"subline_short": "Requests from",
+			"subline_from": "from",
 			"subline_de": "Germany",
-			"subline_ch_nominativ":"",
+			"subline_fr": "France",
+			"subline_ch_nominativ": "",
 			"subline_ch": "Suisse",
 			"helpline": "--- Please choose a service above ---",
 			"route_btn_hint": "Display a route to",
@@ -76,14 +76,54 @@
 			"help": "Copy this code to your website",
 			"close": "Close",
 			"code": "Code",
-			"src": "Requests showing from",
-			"germany": "Germany",
-			"suisse": "Suisse"
+			"src": "Requests showing from"
 		},
 		"footer": {
 			"brought_you_by": "An informative service by",
 			"contact": "Contact",
 			"tracking": "The visits on this webpage are evaluated with Google Analytics."
+		}
+	},
+	"fr": {
+		"lang_code": "fr",
+		"title": "Prism, Tempora & Co",
+		"js": {
+			"tagline": "Où est-ce que ça mène?",
+			"subline": "Exemples de demandes envoyées aux opérateurs web",
+			"subline_short": "Requêtes de",
+			"subline_from": "de",
+			"subline_de": "Allemagne",
+			"subline_fr": "France",
+			"subline_ch_nominativ": "",
+			"subline_ch": "Suisse",
+			"helpline": "--- Choisissez un des services indiqués en haut ---",
+			"route_btn_hint": "Montrer la route vers",
+			"requestline": "Requête à",
+			"resultline": "Accès potentiel de ces services secrets:",
+			"cable": "Câbles sous-marins"
+		},
+		"frame": {
+			"by": "par",
+			"moreinfo": "Plus d'infos"
+		},
+		"embedhelper": {
+			"embed": "Intégrer",
+			"share": "Partager",
+			"small": "Petit",
+			"medium": "Moyenne",
+			"large": "Grand",
+			"giant": "Très grand",
+			"size": "Taille",
+			"lang": "Langue",
+			"help": "Copier ce code pour ton site web",
+			"close": "Fermer",
+			"code": "Code",
+			"src": "Montrer les requêtes de"
+		},
+		"footer": {
+			"brought_you_by": "Un service informatif fourni par",
+			"contact": "Contact",
+			"tracking": "Les visites sur cette page sont évaluées avec Google Analytics."
 		}
 	}
 }
