@@ -249,7 +249,7 @@ function init() {
 		zoom: 4
 
 	}).addLayer(
-			new L.TileLayer("http://{s}.tile.cloudmade.com/1a1b06b230af4efdbb989ea99e9841af/998/256/{z}/{x}/{y}.png",
+			new L.TileLayer("https://{s}.tile.cloudmade.com/1a1b06b230af4efdbb989ea99e9841af/998/256/{z}/{x}/{y}.png",
 				{attribution: '© 2012 CloudMade, OpenStreetMap contributors, CC-BY-SA'}
 			));
 
