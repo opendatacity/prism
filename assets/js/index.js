@@ -134,8 +134,8 @@ function init() {
 	map = new L.Map("map", { center: DEFAULT_POINT, zoom: 3});
 
 	map.addLayer(
-		new L.TileLayer("https://tiles.odcdn.de/trace/{z}/{x}/{y}.png ",
-			{attribution: 'OpenDataCity, CC-BY',
+		new L.TileLayer("http://tile.openstreetmap.org/{z}/{x}/{y}.png",
+			{attribution: 'Application by <a href="http://www.opendatacity.de/">OpenDataCity</a> under <a href="http://creativecommons.org/licenses/by/3.0">CC BY</a>. Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors.',
 				minZoom: 2,
 				maxZoom: 5}
 		)
