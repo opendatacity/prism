@@ -62,7 +62,12 @@
 			<small>
 			{{#langlinks}}
 				| {{#lang_code}}
-					<a href="/prism/{{lang_code}}">{{name}}</a>
+					{{#default}}
+						<a href="/prism/">{{name}}</a>
+					{{/default}}
+					{{^default}}
+						<a href="/prism/index.{{lang_code}}.html">{{name}}</a>
+					{{/default}}
 				{{/lang_code}}
 				{{^lang_code}}
 					<b>{{name}}</b>

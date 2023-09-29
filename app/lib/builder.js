@@ -79,6 +79,7 @@ function build() {
 		var obj = {name: 'english'};
 		if (lang_code != 'en')
 			obj.lang_code = 'en';
+			obj.default = true;
 		result.push(obj);
 		var obj = {name: 'française'};
 		if (lang_code != 'fr')
@@ -99,7 +100,7 @@ function build() {
 			geoinfo: JSON.stringify(geo_data),
 			agencies: JSON.stringify(agencies),
 			jstexts: JSON.stringify(lang_texts.js),
-			main_url: "http://apps.opendatacity.de/prism/" + (lang_texts.lang_code == 'de' ? '' : lang_texts.lang_code),
+			main_url: "https://opendatacity.github.io/prism/" + (lang_texts.lang_code == 'en' ? '' : 'index.' + lang_texts.lang_code + '.html'),
 			screenshot: "http://opendatacity.de/traceprism.jpg"
 		};
 	}
@@ -124,4 +125,3 @@ function build() {
 }
 
 exports.build = build;
-
